@@ -1,0 +1,221 @@
+/* SerQuickNav.css */
+
+.SerQuickN-section {
+  position: relative;
+  padding: 100px 0;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f4f0 100%);
+  overflow: hidden;
+  color: #2c2c2c;
+}
+
+.SerQuickN-container {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.SerQuickN-header {
+  margin-bottom: 60px;
+  position: relative;
+  text-align: center;
+}
+
+.SerQuickN-header-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.SerQuickN-title {
+  font-family: "Georgia", "Times New Roman", serif;
+  font-size: 3rem;
+  font-weight: 400;
+  color: #2c2c2c;
+  margin-bottom: 10px;
+  letter-spacing: -1px;
+  line-height: 1.1;
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.SerQuickN-subtitle {
+  font-family: "Arial", sans-serif;
+  font-size: 0.9rem;
+  color: #d4a574;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin: 0 0 15px 0;
+}
+
+.SerQuickN-underline {
+  height: 2px;
+  width: 60px;
+  background-color: #d4a574;
+  margin: 10px auto;
+}
+
+.SerQuickN-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.SerQuickN-tile {
+  text-align: center;
+  padding: 40px 30px;
+  background: white;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(60px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.SerQuickN-tile:hover {
+  transform: translateY(-10px) !important;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.SerQuickN-icon-wrapper {
+  margin-bottom: 25px;
+}
+
+.SerQuickN-icon {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.SerQuickN-svg-icon {
+  width: 60px;
+  height: 60px;
+  color: #d4a574;
+  stroke-width: 1.5;
+}
+
+.SerQuickN-content {
+  flex: 1;
+}
+
+.SerQuickN-tile-title {
+  font-family: "Georgia", "Times New Roman", serif;
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: #2c2c2c;
+  margin-bottom: 15px;
+  line-height: 1.3;
+}
+
+.SerQuickN-tile-description {
+  font-family: "Arial", sans-serif;
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.SerQuickN-button {
+  background: transparent;
+  color: #d4a574;
+  border: 2px solid #d4a574;
+  padding: 12px 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 15px;
+}
+
+.SerQuickN-button:hover {
+  background: #d4a574;
+  color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .SerQuickN-section {
+    padding: 80px 0;
+  }
+
+  .SerQuickN-grid {
+    gap: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .SerQuickN-section {
+    padding: 60px 0;
+  }
+
+  .SerQuickN-title {
+    font-size: 2.5rem;
+  }
+
+  .SerQuickN-tile {
+    padding: 30px 20px;
+  }
+
+  .SerQuickN-tile-title {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .SerQuickN-section {
+    padding: 50px 0;
+  }
+
+  .SerQuickN-title {
+    font-size: 2.2rem;
+  }
+
+  .SerQuickN-subtitle {
+    font-size: 0.8rem;
+  }
+
+  .SerQuickN-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .SerQuickN-tile {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .SerQuickN-title {
+    font-size: 2rem;
+  }
+
+  .SerQuickN-tile {
+    padding: 25px 15px;
+  }
+
+  .SerQuickN-tile-title {
+    font-size: 1.3rem;
+  }
+
+  .SerQuickN-tile-description {
+    font-size: 0.9rem;
+  }
+
+  .SerQuickN-button {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}

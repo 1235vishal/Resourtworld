@@ -1,0 +1,554 @@
+.DiningContainer {
+  max-width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.DiningContainer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Hero Section with Enhanced Parallax */
+.DiningHero {
+  width: 100%;
+  height: 70vh;
+  min-height: 500px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  perspective: 1px;
+}
+
+.DiningHero-bg {
+  position: absolute;
+  width: 167%;
+  height: 167%;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url("https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  transform: translateZ(-1px) scale(1.2);
+  z-index: -1;
+  will-change: transform;
+}
+
+.DiningHero-content {
+  position: relative;
+  z-index: 2;
+  color: white;
+  max-width: 800px;
+  padding: 0 20px;
+  transform: translateZ(0);
+}
+
+.DiningHero h1 {
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.DiningHero p {
+  font-size: 1.3rem;
+  margin-bottom: 40px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  line-height: 1.6;
+}
+
+.DiningCta-button {
+  width: 388px;
+  background: #e9c0a4;
+  color: white;
+  padding: 16px 40px;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  box-shadow: 0 8px 25px rgba(233, 192, 164, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.DiningCta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(233, 192, 164, 0.6);
+  background: #e9c0a4;
+}
+
+/* Restaurant Cards */
+.DiningRestaurants-section {
+  padding: 80px 0;
+  position: relative;
+  z-index: 10;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f4f0 100%);
+}
+
+.DiningSection-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  color: #2c3e50;
+  font-weight: 700;
+}
+
+.DiningSection-subtitle {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #7f8c8d;
+  margin-bottom: 50px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.DiningRestaurants-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.DiningRestaurant-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  position: relative;
+  border: 1px solid #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.DiningRestaurant-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+}
+
+.DiningRestaurant-image {
+  width: 100%;
+  height: 220px;
+  position: relative;
+  overflow: hidden;
+}
+
+.DiningRestaurant-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.DiningRestaurant-card:hover .DiningRestaurant-image img {
+  transform: scale(1.05);
+}
+
+.DiningRestaurant-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #e9c0a4;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 16px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  z-index: 5;
+}
+
+.DiningRestaurant-content {
+  padding: 25px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.DiningRestaurant-name {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 8px;
+}
+
+.DiningCuisine-type {
+  color: #e9c0a4;
+  font-weight: 600;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.85rem;
+}
+
+.DiningRestaurant-description {
+  color: #7f8c8d;
+  margin-bottom: 20px;
+  line-height: 1.6;
+  font-size: 0.95rem;
+  flex: 1;
+}
+
+.DiningRestaurant-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.DiningFeature-tag {
+  background: #f5f5f5;
+  color: #2c3e50;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border: 1px solid #e0e0e0;
+}
+
+.DiningChef-recommendation {
+  background: linear-gradient(135deg, #fff5f5, #ffe8e8);
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  border-left: 4px solid #e9c0a4;
+}
+
+.DiningChef-rec-title {
+  font-weight: 700;
+  color: #e9c0a4;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+}
+
+.DiningChef-rec-title::before {
+  content: "👨‍🍳";
+  font-size: 1.2rem;
+}
+
+.DiningChef-rec-content {
+  color: #2c3e50;
+  font-style: italic;
+  line-height: 1.5;
+  font-size: 0.9rem;
+}
+
+.DiningRestaurant-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: auto;
+}
+
+.DiningMenu-options {
+  display: flex;
+  gap: 10px;
+}
+
+.DiningAction-btn {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  flex: 1;
+}
+
+.DiningPrimary-btn {
+  background: #e9c0a4;
+  color: white;
+  box-shadow: 0 4px 15px rgba(233, 192, 164, 0.2);
+}
+
+.DiningPrimary-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(233, 192, 164, 0.3);
+  background: #e9c0a4;
+}
+
+.DiningSecondary-btn {
+  background: transparent;
+  color: #e9c0a4;
+  border: 2px solid #e9c0a4;
+  box-shadow: 0 4px 15px rgba(233, 192, 164, 0.1);
+}
+
+.DiningSecondary-btn:hover {
+  background: rgba(233, 192, 164, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(233, 192, 164, 0.2);
+}
+
+.DiningTertiary-btn {
+  background: #2c3e50;
+  color: white;
+  border: 2px solid #2c3e50;
+}
+
+.DiningTertiary-btn:hover {
+  background: #34495e;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Simple Footer */
+.DiningSimpleFooter {
+  background: #2c3e50;
+  color: white;
+  padding: 30px 0;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.DiningSimpleFooter p {
+  margin: 0;
+  color: #ecf0f1;
+}
+
+/* Modal Styles */
+.DiningModal {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(10px);
+}
+
+.DiningModal-content {
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  max-width: 500px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.menu-preview {
+  max-width: 600px;
+}
+
+.DiningClose-modal {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #e9c0a4;
+  font-weight: bold;
+  transition: color 0.3s ease;
+  line-height: 1;
+}
+
+.DiningClose-modal:hover {
+  color: #e9c0a4;
+}
+
+.DiningModal h2 {
+  color: #2c3e50;
+  margin-bottom: 25px;
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.DiningForm-group {
+  margin-bottom: 15px;
+}
+
+.DiningForm-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #2c3e50;
+  font-size: 0.95rem;
+}
+
+.DiningForm-group input,
+.DiningForm-group select,
+.DiningForm-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #ecf0f1;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  transition: border-color 0.3s ease;
+}
+
+.DiningForm-group input:focus,
+.DiningForm-group select:focus,
+.DiningForm-group textarea:focus {
+  outline: none;
+  border-color: #e9c0a4;
+}
+
+/* Menu Preview Styles */
+.DiningMenu-preview {
+  padding: 15px;
+}
+
+.DiningMenu-header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.DiningMenu-header h3 {
+  color: #2c3e50;
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+}
+
+.DiningMenu-header p {
+  color: #e9c0a4;
+  font-weight: 600;
+}
+
+.DiningMenu-section {
+  margin-bottom: 20px;
+}
+
+.DiningMenu-section h4 {
+  color: #2c3e50;
+  border-bottom: 2px solid #e9c0a4;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+.DiningMenu-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.DiningMenu-section li {
+  padding: 8px 0;
+  border-bottom: 1px dashed #eee;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .DiningHero {
+    height: 60vh;
+  }
+
+  .DiningHero h1 {
+    font-size: 3rem;
+  }
+
+  .DiningHero p {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .DiningHero {
+    height: 50vh;
+    min-height: 400px;
+  }
+
+  .DiningHero h1 {
+    font-size: 2.5rem;
+  }
+
+  .DiningHero p {
+    font-size: 1.1rem;
+  }
+
+  .DiningSection-title {
+    font-size: 2rem;
+  }
+
+  .DiningRestaurant-name {
+    font-size: 1.4rem;
+  }
+
+  .DiningMenu-options {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .DiningHero {
+    height: 70vh;
+  }
+
+  .DiningHero h1 {
+    font-size: 2rem;
+  }
+
+  .DiningHero p {
+    font-size: 1rem;
+  }
+
+  .DiningCta-button {
+    padding: 14px 30px;
+    font-size: 1rem;
+  }
+
+  .DiningRestaurants-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .DiningModal-content {
+    padding: 20px;
+  }
+}
+
+/* Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.DiningRestaurant-card {
+  animation: fadeInUp 0.6s ease-out;
+  animation-fill-mode: both;
+}
+
+.DiningRestaurant-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.DiningRestaurant-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.DiningRestaurant-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.DiningRestaurant-card:nth-child(4) {
+  animation-delay: 0.4s;
+}

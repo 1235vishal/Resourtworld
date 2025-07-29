@@ -1,0 +1,110 @@
+/* Welcome Section */
+.hotelp2-welcome {
+  padding: 60px 0;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f4f0 100%);
+  text-align: center;
+}
+
+.hotelp2-welcome-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hotelp2-welcome-title {
+  font-size: 3.5rem;
+  color: #e0b398;
+  margin-bottom: 20px;
+  font-weight: 300;
+  letter-spacing: 2px;
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+.hotelp2-welcome-tagline {
+  font-size: 1.4rem;
+  color: #666;
+  margin-bottom: 40px;
+  font-style: italic;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.hotelp2-welcome-cta {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 40px;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.hotelp2-welcome-book-btn,
+.hotelp2-welcome-event-btn {
+  padding: 15px 40px;
+  border: 2px solid #e0b398;
+  background: transparent;
+  color: #e0b398;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  border-radius: 8px;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.hotelp2-welcome-book-btn:hover,
+.hotelp2-welcome-event-btn:hover {
+  background: #e0b398;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(224, 179, 152, 0.3);
+}
+
+.hotelp2-welcome-book-btn {
+  background: #e0b398;
+  color: white;
+}
+
+.hotelp2-welcome-book-btn:hover {
+  background: #d4a082;
+}
+
+@media (max-width: 768px) {
+  .hotelp2-welcome-title {
+    font-size: 2.5rem;
+  }
+  .hotelp2-welcome {
+    position: relative;
+    top: 40px;
+  }
+
+  .hotelp2-welcome-tagline {
+    font-size: 1.2rem;
+  }
+
+  .hotelp2-welcome-cta {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hotelp2-welcome-book-btn,
+  .hotelp2-welcome-event-btn {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hotelp2-welcome-title {
+    font-size: 2rem;
+  }
+
+  .hotelp2-welcome-tagline {
+    font-size: 1rem;
+  }
+
+  .hotelp2-welcome {
+    padding: 50px 0;
+  }
+}

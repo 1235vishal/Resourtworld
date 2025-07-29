@@ -1,0 +1,161 @@
+/* AboutUs.css */
+.about-section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  background-color: #fff;
+}
+
+.about-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  z-index: 1;
+}
+
+.about-card {
+  position: relative;
+  z-index: 2;
+  background: #f6f6f6;
+  padding: 3rem 2rem;
+  width: 40%;
+  height: 888px;
+  margin-right: 5%;
+  /* box-shadow: 0 5px 30px rgba(0, 0, 0, 0.05);
+  border-radius: 12px; */
+}
+
+.about-card h2 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-align: left;
+  color: #000;
+}
+
+.abouttext {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  color: #444;
+  text-align: justify;
+  position: relative;
+  top: 217px;
+}
+
+.sub-heading-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.line {
+  width: 40px;
+  height: 2px;
+  background-color: #e5cfc8;
+  border: none;
+}
+
+.sub-heading {
+  font-size: 1rem;
+  text-transform: uppercase;
+  color: #bbb;
+  font-weight: 600;
+}
+
+.about-card p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  color: #444;
+}
+
+.read-more {
+  color: #db8c7c;
+  text-decoration: none;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  display: inline-block;
+  margin-top: 1.5rem;
+  border-bottom: 1px solid #db8c7c;
+  padding-bottom: 2px;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 1024px) {
+  .about-section {
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem 1rem;
+  }
+
+  .about-bg {
+    display: flex;
+  }
+
+  .about-card {
+    width: 90%;
+    margin: 2rem auto;
+    height: auto;
+  }
+
+  .about-card h2 {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .sub-heading-wrapper {
+    justify-content: center;
+  }
+
+  .sub-heading {
+    text-align: center;
+  }
+
+  .read-more {
+    text-align: center;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .about-section {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .about-card {
+    width: 90%;
+    margin: 2rem auto;
+    height: auto;
+    padding: 2rem;
+  }
+
+  .abouttext {
+    position: relative;
+    top: 0;
+    text-align: justify;
+  }
+
+  .about-card h2 {
+    font-size: 1.8rem;
+    text-align: center;
+  }
+  .read-more {
+    text-align: center;
+    display: inline-block;
+  }
+}

@@ -1,0 +1,97 @@
+.contacthero-section {
+  position: relative;
+  height: 70vh; /* Reduced height to fit content comfortably */
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.contacthero-parallax-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover; /* Use cover to fill section, ensuring visibility */
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: -1;
+  image-rendering: -webkit-optimize-contrast; /* Enhance image clarity */
+  image-rendering: crisp-edges;
+}
+
+.contacthero-parallax-bg::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4); /* Dark overlay for text contrast */
+}
+
+.contacthero-content {
+  color: white;
+  font-family: "Playfair Display", serif;
+  z-index: 1;
+  padding: 0 20px;
+  max-width: 90%; /* Prevent text overflow on small screens */
+}
+
+.contacthero-content h1 {
+  font-size: 4rem;
+  font-weight: 600;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Improve text readability */
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
+  .contacthero-section {
+    height: 60vh; /* Adjusted for tablets */
+  }
+
+  .contacthero-content h1 {
+    font-size: 3rem;
+  }
+
+  .contacthero-parallax-bg {
+    background-size: cover; /* Maintain full visibility */
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .contacthero-section {
+    height: 50vh; /* Further reduced for smaller screens */
+  }
+
+  .contacthero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .contacthero-parallax-bg {
+    background-size: cover; /* Ensure full image visibility */
+    background-position: center center;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .contacthero-section {
+    height: 45vh; /* Smallest height for mobile screens */
+  }
+
+  .contacthero-content h1 {
+    font-size: 1.8rem; /* Smaller font for mobile */
+  }
+
+  .contacthero-parallax-bg {
+    background-size: cover; /* Ensure image fills viewport */
+  }
+
+  .contacthero-content {
+    padding: 0 15px; /* Tighter padding for small screens */
+  }
+}

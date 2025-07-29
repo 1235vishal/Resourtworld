@@ -1,0 +1,558 @@
+/* Hotel Gallery CSS */
+
+/* Loading Screen */
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Main Container */
+.hotelgallery-container {
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #f9f6f2 50%, #fff 50%);
+}
+
+/* Header Section */
+.hotelgallery-header {
+  position: relative;
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+.hotelgallery-header-content {
+  max-width: 72rem;
+  margin: 0 auto;
+}
+
+/* .hotelgallery-header-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #78350f;
+  margin-bottom: 1rem;
+} */
+
+@media (min-width: 768px) {
+  /* .hotelgallery-header-title {
+    font-size: 3rem;
+  } */
+}
+
+/* .hotelgallery-header-divider {
+  width: 6rem;
+  height: 0.25rem;
+  background: linear-gradient(to right, #fbbf24, #d97706);
+  margin: 0 auto 1.5rem;
+} */
+
+.hotelgallery-header-description {
+  font-size: 1.1rem;
+  color: #92400e;
+  max-width: 32rem;
+  margin: 0 auto;
+  line-height: 1.625;
+}
+
+/* Filter Section */
+.hotelgallery-filter-section {
+  padding: 0 1rem;
+  margin-bottom: 2rem;
+}
+
+.hotelgallery-filter-container {
+  max-width: 72rem;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* Mobile Filter Toggle */
+.hotelgallery-mobile-filter-toggle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: white;
+  border-radius: 9999px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  border: 1px solid #fbbf24;
+  color: #92400e;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.hotelgallery-mobile-filter-toggle:hover {
+  background: #fffbeb;
+}
+
+@media (min-width: 768px) {
+  .hotelgallery-mobile-filter-toggle {
+    display: none;
+  }
+}
+
+/* Filter Buttons */
+.hotelgallery-filter-buttons {
+  display: none;
+}
+
+.hotelgallery-filter-buttons.hotelgallery-mobile-open {
+  display: block;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  z-index: 20;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+@media (min-width: 768px) {
+  .hotelgallery-filter-buttons {
+    display: block !important;
+  }
+}
+
+.hotelgallery-filter-buttons-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+  scrollbar-width: thin;
+  scrollbar-color: #fbbf24 transparent;
+}
+
+.hotelgallery-filter-buttons-container::-webkit-scrollbar {
+  height: 4px;
+}
+
+.hotelgallery-filter-buttons-container::-webkit-scrollbar-thumb {
+  background-color: #fbbf24;
+  border-radius: 2px;
+}
+
+@media (min-width: 768px) {
+  .hotelgallery-filter-buttons-container {
+    flex-wrap: nowrap;
+    justify-content: center;
+    padding-bottom: 0;
+    overflow-x: visible;
+  }
+}
+
+.hotelgallery-filter-button {
+  padding: 0.5rem 1.25rem;
+  border-radius: 9999px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: 1px solid #fbbf24;
+  background: white;
+  color: #92400e;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.hotelgallery-filter-button.hotelgallery-active {
+  background: #d97706;
+  color: white;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  border-color: #d97706;
+}
+
+.hotelgallery-filter-button:not(.hotelgallery-active):hover {
+  background: #fffbeb;
+  border-color: #f59e0b;
+}
+
+/* Gallery Grid */
+.hotelgallery-grid-section {
+  padding: 0 1rem 3rem;
+}
+
+.hotelgallery-grid-container {
+  max-width: 80rem;
+  margin: 0 auto;
+}
+
+.hotelgallery-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .hotelgallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .hotelgallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Gallery Item */
+.hotelgallery-item {
+  cursor: pointer;
+  background: white;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.hotelgallery-item:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  transform: translateY(-0.25rem);
+}
+
+.hotelgallery-item-image-container {
+  position: relative;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+}
+
+.hotelgallery-item-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.hotelgallery-item:hover .hotelgallery-item-image {
+  transform: scale(1.05);
+}
+
+/* Image Overlay */
+.hotelgallery-item-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hotelgallery-item:hover .hotelgallery-item-overlay {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.hotelgallery-item-overlay-content {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  color: white;
+  text-align: center;
+}
+
+.hotelgallery-item:hover .hotelgallery-item-overlay-content {
+  opacity: 1;
+}
+
+.hotelgallery-overlay-icon {
+  margin: 0 auto 0.5rem;
+}
+
+.hotelgallery-overlay-text {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* Video Badge */
+.hotelgallery-video-badge {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  background: #d97706;
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+/* Gallery Item Content */
+.hotelgallery-item-content {
+  padding: 1.25rem;
+}
+
+.hotelgallery-item-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #78350f;
+  margin-bottom: 0.5rem;
+}
+
+.hotelgallery-item-description {
+  color: #a16207;
+  font-size: 0.875rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.5;
+}
+
+.hotelgallery-item-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hotelgallery-item-category {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #d97706;
+  font-weight: 500;
+}
+
+.hotelgallery-item-icon {
+  width: 1.75rem;
+  height: 1.75rem;
+  background: #fef3c7;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+.hotelgallery-item:hover .hotelgallery-item-icon {
+  background: #fed7aa;
+}
+
+.hotelgallery-item-icon svg {
+  color: #d97706;
+  width: 14px;
+  height: 14px;
+}
+
+/* Lightbox */
+.hotelgallery-lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.95);
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.hotelgallery-lightbox-content {
+  position: relative;
+  max-width: 80rem;
+  max-height: 100%;
+}
+
+.hotelgallery-lightbox-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 10;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.hotelgallery-lightbox-close:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.hotelgallery-lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 3rem;
+  height: 3rem;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.hotelgallery-lightbox-nav:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.hotelgallery-lightbox-nav-prev {
+  left: 1rem;
+}
+
+.hotelgallery-lightbox-nav-next {
+  right: 1rem;
+}
+
+.hotelgallery-lightbox-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 0.5rem;
+}
+
+.hotelgallery-lightbox-info {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  right: 1rem;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.hotelgallery-lightbox-info-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.hotelgallery-lightbox-info-description {
+  color: #d1d5db;
+}
+
+/* Video Modal */
+.hotelgallery-video-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.95);
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.hotelgallery-video-modal-content {
+  position: relative;
+  width: 100%;
+  max-width: 72rem;
+  aspect-ratio: 16/9;
+}
+
+.hotelgallery-video-modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 10;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.hotelgallery-video-modal-close:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.hotelgallery-video-modal-iframe {
+  width: 100%;
+  height: 100%;
+  border-radius: 0.5rem;
+}
+
+.hotelgallery-video-modal-info {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  right: 1rem;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.hotelgallery-video-modal-info-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.hotelgallery-video-modal-info-description {
+  color: #d1d5db;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .hotelgallery-header-title {
+    font-size: 2rem;
+  }
+
+  .hotelgallery-header-description {
+    font-size: 1rem;
+  }
+
+  .hotelgallery-filter-buttons-container {
+    justify-content: flex-start;
+    padding-bottom: 0.5rem;
+  }
+
+  .hotelgallery-filter-button {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  .hotelgallery-item-title {
+    font-size: 1rem;
+  }
+
+  .hotelgallery-item-description {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hotelgallery-header-title {
+    font-size: 1.75rem;
+  }
+
+  .hotelgallery-header-divider {
+    width: 4rem;
+  }
+
+  .hotelgallery-filter-buttons-container {
+    gap: 0.5rem;
+  }
+
+  .hotelgallery-filter-button {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+  }
+
+  .hotelgallery-grid {
+    gap: 1rem;
+  }
+
+  .hotelgallery-item-content {
+    padding: 1rem;
+  }
+}

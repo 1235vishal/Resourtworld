@@ -1,0 +1,670 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.hotelweddingworld-wedding-main-page {
+  --primary: #e9c0a4;
+  --primary-dark: #d4a88c;
+  --primary-light: #f5d8c1;
+  --secondary: #6d6875;
+  --accent: #b5838d;
+  --text: #333;
+  --text-light: #666;
+  --white: #fff;
+  --light-bg: #f9f5f2;
+  font-family: "Playfair Display", serif;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--light-bg);
+}
+
+/* Hero Section */
+.hotelweddingworld-hero {
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url("/wedding/birdwed.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+
+.hotelweddingworld-hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    circle at 30% 70%,
+    rgba(233, 192, 164, 0.1) 0%,
+    transparent 50%
+  );
+}
+
+.hotelweddingworld-hero-content {
+  max-width: 900px;
+  padding: 0 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.hotelweddingworld-hero h1 {
+  font-size: clamp(2rem, 8vw, 4rem);
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+  animation: fadeInUp 1s ease;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.hotelweddingworld-hero p {
+  font-size: clamp(1rem, 3vw, 1.4rem);
+  margin-bottom: 30px;
+  opacity: 0.95;
+  animation: fadeInUp 1s ease 0.3s both;
+  font-family: "Montserrat", sans-serif;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hotelweddingworld-hero-cta {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  animation: fadeInUp 1s ease 0.6s both;
+}
+
+.hotelweddingworld-hero-scroll {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: bounce 2s infinite;
+  color: var(--white);
+  font-size: 1.8rem;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0) translateX(-50%);
+  }
+  40% {
+    transform: translateY(-15px) translateX(-50%);
+  }
+  60% {
+    transform: translateY(-7px) translateX(-50%);
+  }
+}
+
+/* Buttons */
+.hotelweddingworld-btn {
+  padding: clamp(12px, 2vw, 14px) clamp(25px, 4vw, 30px);
+  border: none;
+  border-radius: 50px;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: 0.5px;
+}
+
+.hotelweddingworld-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+.hotelweddingworld-btn:hover::before {
+  left: 100%;
+}
+
+.hotelweddingworld-btn-primary {
+  background: var(--primary);
+  color: var(--text);
+  box-shadow: 0 4px 15px rgba(233, 192, 164, 0.6);
+}
+
+.hotelweddingworld-btn-primary:hover {
+  background: var(--primary-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(233, 192, 164, 0.8);
+}
+
+.hotelweddingworld-btn-secondary {
+  background: rgba(255, 255, 255, 0.2);
+  color: var(--white);
+  border: 2px solid var(--white);
+  backdrop-filter: blur(10px);
+}
+
+.hotelweddingworld-btn-secondary:hover {
+  background: var(--white);
+  color: var(--text);
+  transform: translateY(-3px);
+}
+
+/* Main Content */
+.hotelweddingworld-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+section {
+  padding: clamp(60px, 10vw, 80px) 0;
+}
+
+.hotelweddingworld-section-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.hotelweddingworld-section-header h2 {
+  font-size: clamp(1.8rem, 5vw, 2.5rem);
+  color: var(--text);
+  margin-bottom: 15px;
+  position: relative;
+  font-weight: 700;
+}
+
+.hotelweddingworld-section-header h2::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: var(--primary);
+  border-radius: 2px;
+}
+
+.hotelweddingworld-section-header p {
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  color: var(--text-light);
+  max-width: 600px;
+  margin: 0 auto;
+  font-family: "Montserrat", sans-serif;
+}
+
+/* Offerings Section */
+.hotelweddingworld-offerings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.hotelweddingworld-offering-card {
+  background: var(--white);
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  text-align: center;
+  padding: 30px 20px;
+}
+
+.hotelweddingworld-offering-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.hotelweddingworld-offering-icon {
+  width: 60px;
+  height: 60px;
+  background: var(--primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  font-size: 1.8rem;
+  color: var(--white);
+}
+
+.hotelweddingworld-offering-card h3 {
+  font-size: clamp(1.2rem, 2vw, 1.4rem);
+  margin-bottom: 10px;
+  color: var(--text);
+}
+
+.hotelweddingworld-offering-card p {
+  color: var(--text-light);
+  line-height: 1.6;
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(0.85rem, 1.5vw, 0.95rem);
+}
+
+/* Packages Section */
+.hotelweddingworld-packages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  margin-top: 40px;
+}
+
+.hotelweddingworld-package-card {
+  background: var(--white);
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.hotelweddingworld-package-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.hotelweddingworld-package-card.hotelweddingworld-featured {
+  border: 2px solid var(--primary);
+  transform: scale(1.02);
+}
+
+.hotelweddingworld-package-header {
+  background: var(--light-bg);
+  padding: 25px;
+  border-bottom: 1px solid var(--primary-light);
+}
+
+.hotelweddingworld-package-title {
+  font-size: clamp(1.4rem, 2.5vw, 1.6rem);
+  color: var(--text);
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.hotelweddingworld-package-price {
+  font-size: clamp(1.6rem, 3vw, 1.8rem);
+  color: var(--primary);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.hotelweddingworld-package-subtitle {
+  font-size: clamp(0.9rem, 1.5vw, 1rem);
+  color: var(--text-light);
+  font-family: "Montserrat", sans-serif;
+}
+
+.hotelweddingworld-package-content {
+  padding: 25px;
+}
+
+.hotelweddingworld-package-features {
+  list-style: none;
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.hotelweddingworld-package-features li {
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 10px;
+  color: var(--text-light);
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(0.85rem, 1.5vw, 0.95rem);
+}
+
+.hotelweddingworld-package-features li::before {
+  content: "\f00c";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+}
+
+.hotelweddingworld-customizable-note {
+  font-size: clamp(0.8rem, 1.2vw, 0.85rem);
+  color: var(--text-light);
+  font-style: italic;
+  font-family: "Montserrat", sans-serif;
+}
+
+/* Wedding Content Section */
+.hotelweddingworld-wedding-content {
+  max-width: 900px;
+  margin: 0 auto;
+  font-size: clamp(0.9rem, 1.5vw, 1rem);
+  color: var(--text-light);
+  line-height: 1.8;
+  font-family: "Montserrat", sans-serif;
+}
+
+.hotelweddingworld-wedding-content p {
+  margin-bottom: 15px;
+}
+
+.hotelweddingworld-wedding-content h3 {
+  margin-top: 30px;
+  color: var(--text);
+  font-size: clamp(1.4rem, 2.5vw, 1.6rem);
+  margin-bottom: 15px;
+  font-weight: 600;
+  position: relative;
+  padding-bottom: 8px;
+}
+
+.hotelweddingworld-wedding-content h3::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 2px;
+  background: var(--primary);
+}
+
+.hotelweddingworld-wedding-content ul {
+  margin-left: 15px;
+  list-style: none;
+  margin-bottom: 20px;
+}
+
+.hotelweddingworld-wedding-content ul li {
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 10px;
+  font-size: clamp(0.85rem, 1.5vw, 0.95rem);
+}
+
+.hotelweddingworld-wedding-content ul li::before {
+  content: "\f00c";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+}
+
+/* Gallery Section */
+.hotelweddingworld-gallery-section {
+  background-color: var(--light-bg);
+}
+
+.hotelweddingworld-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin-top: 40px;
+}
+
+.hotelweddingworld-gallery-item {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: block;
+  text-decoration: none;
+}
+
+.hotelweddingworld-gallery-item:hover {
+  transform: scale(1.03);
+}
+
+.hotelweddingworld-gallery-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.hotelweddingworld-gallery-item:hover .hotelweddingworld-gallery-image {
+  transform: scale(1.1);
+}
+
+.hotelweddingworld-gallery-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+  color: var(--white);
+  padding: 15px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.hotelweddingworld-gallery-item:hover .hotelweddingworld-gallery-overlay {
+  opacity: 1;
+}
+
+.hotelweddingworld-gallery-overlay h4 {
+  font-size: clamp(1rem, 1.5vw, 1.1rem);
+  margin-bottom: 5px;
+}
+
+.hotelweddingworld-gallery-overlay p {
+  font-size: clamp(0.8rem, 1.2vw, 0.85rem);
+  opacity: 0.9;
+  font-family: "Montserrat", sans-serif;
+}
+
+/* CTA Section */
+.hotelweddingworld-cta-section {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80");
+  background-size: cover;
+  background-position: center;
+  color: var(--white);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hotelweddingworld-cta-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    circle at 70% 30%,
+    rgba(233, 192, 164, 0.1) 0%,
+    transparent 50%
+  );
+}
+
+.hotelweddingworld-cta-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hotelweddingworld-cta-section h2 {
+  font-size: clamp(1.8rem, 5vw, 2.5rem);
+  margin-bottom: 15px;
+}
+
+.hotelweddingworld-cta-section p {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  margin-bottom: 30px;
+  opacity: 0.9;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: "Montserrat", sans-serif;
+}
+
+.hotelweddingworld-cta-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .hotelweddingworld-hero h1 {
+    font-size: clamp(1.8rem, 6vw, 3rem);
+  }
+
+  .hotelweddingworld-hero p {
+    font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+  }
+}
+
+@media (max-width: 768px) {
+  .hotelweddingworld-hero {
+    height: 80vh;
+  }
+
+  .hotelweddingworld-hero h1 {
+    font-size: clamp(1.6rem, 5vw, 2.5rem);
+  }
+
+  .hotelweddingworld-hero p {
+    font-size: clamp(0.85rem, 2vw, 1rem);
+  }
+
+  .hotelweddingworld-hero-cta {
+    align-items: center;
+    gap: 12px;
+  }
+
+  .hotelweddingworld-section-header h2 {
+    font-size: clamp(1.6rem, 4vw, 2rem);
+  }
+
+  .hotelweddingworld-section-header p {
+    font-size: clamp(0.85rem, 1.5vw, 0.95rem);
+  }
+
+  .hotelweddingworld-packages-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hotelweddingworld-package-card.hotelweddingworld-featured {
+    transform: scale(1);
+  }
+
+  .hotelweddingworld-cta-section h2 {
+    font-size: clamp(1.6rem, 4vw, 2rem);
+  }
+
+  .hotelweddingworld-cta-section p {
+    font-size: clamp(0.85rem, 1.5vw, 0.95rem);
+  }
+
+  .hotelweddingworld-cta-buttons {
+    align-items: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .hotelweddingworld-hero {
+    height: 70vh;
+  }
+
+  .hotelweddingworld-hero h1 {
+    font-size: clamp(1.4rem, 4vw, 2rem);
+  }
+
+  .hotelweddingworld-hero p {
+    font-size: clamp(0.8rem, 1.8vw, 0.9rem);
+  }
+
+  .hotelweddingworld-section-header h2 {
+    font-size: clamp(1.4rem, 3.5vw, 1.8rem);
+  }
+
+  .hotelweddingworld-wedding-content h3 {
+    font-size: clamp(1.2rem, 2vw, 1.4rem);
+  }
+
+  .hotelweddingworld-btn {
+    padding: clamp(10px, 2vw, 12px) clamp(20px, 3vw, 25px);
+    font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+  }
+
+  .hotelweddingworld-offerings-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hotelweddingworld-gallery-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 400px) {
+  .hotelweddingworld-hero {
+    height: 60vh;
+  }
+
+  .hotelweddingworld-hero-content {
+    padding: 0 10px;
+  }
+
+  .hotelweddingworld-container {
+    padding: 0 10px;
+  }
+
+  .hotelweddingworld-offering-card {
+    padding: 20px 15px;
+  }
+
+  .hotelweddingworld-package-card {
+    padding: 20px 15px;
+  }
+}
+
+/* Floating Animation */
+.hotelweddingworld-floating {
+  animation: floating 3s ease-in-out infinite;
+}
+
+@keyframes floating {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}

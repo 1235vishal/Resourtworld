@@ -1,0 +1,136 @@
+/* CONTAINER */
+.testimonial-table-container {
+  padding: 2rem;
+  background-color: #fdfaf7;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* HEADER */
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.table-header h2 {
+  color: #6d4c41;
+  margin-bottom: 10px;
+}
+
+/* ADD BUTTON */
+.add-button {
+  background-color: #e9c0a4;
+  color: #4a362a;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.add-button:hover {
+  background-color: #d6a57c;
+  color: white;
+}
+
+/* TABLE STYLING */
+.testimonial-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
+}
+
+.testimonial-table th,
+.testimonial-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid #eee;
+  text-align: left;
+  color: #4a362a;
+}
+
+.testimonial-table th {
+  background-color: #f3e3d5;
+  color: #5d4037;
+  font-weight: 600;
+}
+
+/* IMAGE */
+.testimonial-table img {
+  border-radius: 8px;
+  max-height: 60px;
+  object-fit: cover;
+}
+
+/* BUTTONS */
+.edit-btn,
+.delete-btn {
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  margin-right: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.edit-btn {
+  background-color: #007bff;
+  color: white;
+}
+
+.edit-btn:hover {
+  background-color: #0056b3;
+}
+
+.delete-btn {
+  background-color: #dc3545;
+  color: white;
+}
+
+.delete-btn:hover {
+  background-color: #b02a37;
+}
+
+/* RESPONSIVE TABLE */
+@media screen and (max-width: 768px) {
+  .testimonial-table thead {
+    display: none;
+  }
+
+  .testimonial-table tr {
+    display: block;
+    margin-bottom: 1rem;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  }
+
+  .testimonial-table td {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 16px;
+    border-bottom: 1px solid #eee;
+  }
+
+  .testimonial-table td:last-child {
+    border-bottom: none;
+  }
+
+  .testimonial-table td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: #6d4c41;
+  }
+
+  .testimonial-table td img {
+    max-width: 80px;
+  }
+}

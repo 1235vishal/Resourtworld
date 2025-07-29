@@ -1,0 +1,224 @@
+.venuep1-container * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.venuep1-body {
+  font-family: "Georgia", serif;
+  background: linear-gradient(135deg, #ffffff 0%, #e0b398 100%);
+  color: #333;
+  overflow-x: hidden;
+}
+
+.venuep1-hero-section {
+  height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.venuep1-content-wrapper {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  max-width: 1600px;
+  gap: 20px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  position: relative;
+  top: 60px;
+}
+
+.venuep1-gallery-container {
+  flex: 1;
+  position: relative;
+  height: 80%;
+  max-width: 50%;
+}
+
+.venuep1-image-gallery {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8);
+}
+
+.venuep1-gallery-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.5s ease;
+}
+
+.venuep1-rotating-gallery {
+  flex: 1;
+  position: relative;
+  height: 80%;
+  max-width: 50%;
+}
+
+.venuep1-image-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.venuep1-virtual-tour {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8);
+}
+
+.venuep1-header-content {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 5;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 15px 30px;
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  border: 2px solid #e0b398;
+  box-shadow: 0 8px 32px rgba(224, 179, 152, 0.3);
+}
+
+.venuep1-main-title {
+  font-size: 1.5rem;
+  font-weight: 300;
+  margin-bottom: 8px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  color: #8b4513;
+}
+
+.venuep1-subtitle {
+  font-size: 1rem;
+  color: #6b4423;
+  font-weight: 300;
+}
+
+.venuep1-fullscreen-btn {
+  width: 16%;
+  position: absolute;
+  /* bottom: 300px; */
+  top: 10px;
+  right: 20px;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.venuep1-fullscreen-btn:hover {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .venuep1-content-wrapper {
+    height: 85vh;
+    flex-direction: column;
+    gap: 11px;
+    padding: 0 10px;
+  }
+
+  .venuep1-gallery-container,
+  .venuep1-rotating-gallery {
+    max-width: 100%;
+    height: 45%;
+  }
+
+  .venuep1-main-title {
+    font-size: 1.8rem;
+  }
+
+  .venuep1-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .venuep1-header-content {
+    padding: 10px 20px;
+    top: 10px;
+  }
+
+  .venuep1-fullscreen-btn {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .venuep1-main-title {
+    font-size: 1.4rem;
+  }
+ .venuep1-hero-section {
+    height: 108vh;
+ }
+  .venuep1-subtitle {
+    font-size: 0.8rem;
+  }
+
+  .venuep1-header-content {
+    padding: 8px 15px;
+    width: 90%;
+  }
+
+  .venuep1-gallery-container,
+  .venuep1-rotating-gallery {
+    height: 30%;
+    width: 100%;
+    position: relative;
+    top: 20px;
+  }
+
+  .venuep1-fullscreen-btn {
+    width: 93%;
+    height: 30px;
+    top: 387px;
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+
+  /* Fullscreen specific styles */
+  :fullscreen .venuep1-image-container,
+  :-webkit-full-screen .venuep1-image-container,
+  :-moz-full-screen .venuep1-image-container,
+  :-ms-fullscreen .venuep1-image-container {
+    width: 100%;
+    height: 100%;
+    margin-top: 0;
+    border-radius: 0;
+  }
+
+  :fullscreen .venuep1-virtual-tour,
+  :-webkit-full-screen .venuep1-virtual-tour,
+  :-moz-full-screen .venuep1-virtual-tour,
+  :-ms-fullscreen .venuep1-virtual-tour {
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  :fullscreen .venuep1-fullscreen-btn,
+  :-webkit-full-screen .venuep1-fullscreen-btn,
+  :-moz-full-screen .venuep1-fullscreen-btn,
+  :-ms-fullscreen .venuep1-fullscreen-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+  }
+}

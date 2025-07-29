@@ -1,0 +1,147 @@
+.hoteltestimonial-container {
+  height: 100vh;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.hoteltestimonial-card {
+  background-color: #ffffff;
+  padding: 3rem 2rem;
+  max-width: 589px;
+  width: 101%;
+  height: 110%;
+  text-align: center;
+  position: relative;
+  right: 367px;
+}
+
+.hoteltestimonial-text {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 1.5rem;
+  top: 164px;
+  position: relative;
+}
+
+.hoteltestimonial-quote-icon {
+  font-size: 8rem;
+  color: #e5cfc8;
+  margin-bottom: 1rem;
+}
+
+.hoteltestimonial-quote {
+  font-size: 1.2rem;
+  color: #222;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  font-family: "Georgia", serif;
+}
+
+.hoteltestimonial-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.hoteltestimonial-decor-line {
+  width: 50px;
+  height: 1px;
+  background-color: #e5e5e5;
+}
+
+.hoteltestimonial-decor-icon {
+  font-size: 1.2rem;
+  color: #ccc;
+}
+
+.hoteltestimonial-author-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.hoteltestimonial-author-box img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ccc;
+}
+
+.hoteltestimonial-nav-button {
+    background-color: #e5cfc8;
+
+  border: 1px solid #ccc;
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+  /* transition: background 0.3s; */
+  width: 10%;
+}
+
+.hoteltestimonial-nav-button.hoteltestimonial-filled {
+  background-color: #e5cfc8;
+  border-color: transparent;
+  color: #000;
+  width: 10%;
+}
+
+.hoteltestimonial-name {
+  font-size: 1rem;
+  margin: 0;
+  font-weight: 700;
+}
+
+.hoteltestimonial-role {
+  font-size: 0.85rem;
+  color: #999;
+}
+
+@media (max-width: 768px) {
+  .hoteltestimonial-container {
+    padding: 1rem;
+    height: auto;
+  }
+
+  .hoteltestimonial-card {
+    padding: 3rem 2rem;
+    max-width: 589px;
+    width: 101%;
+    height: 110%;
+    position: relative;
+    right: 0px;
+  }
+
+  .hoteltestimonial-text {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #000;
+    margin-bottom: 1.5rem;
+    top: 0px;
+    position: relative;
+  }
+
+  .hoteltestimonial-quote {
+    font-size: 1rem;
+  }
+
+  .hoteltestimonial-nav-button {
+    padding: 0.4rem 0.8rem;
+  }
+
+  .hoteltestimonial-author-box img {
+    width: 50px;
+    height: 50px;
+  }
+}

@@ -1,0 +1,360 @@
+/* Background Video Styles */
+.venumain-video-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.venumain-video-background video {
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+}
+
+.venumain-video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(102, 126, 234, 0.5);
+  background: linear-gradient(135deg, #f9f3e9, #e2d4ba);
+}
+
+/* Main Content Styles */
+.venumain-container {
+  position: relative;
+  min-height: 100vh;
+  color: #333;
+}
+
+.venumain-content {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.venumain-header {
+  text-align: center;
+  margin-bottom: 30px;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.venumain-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.venumain-header p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+.venumain-main-content {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 30px;
+  align-items: start;
+}
+
+/* Map Container Styles */
+.venumain-map-container {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(5px);
+}
+
+.venumain-map-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+}
+
+.venumain-map-container h2 {
+  margin-bottom: 20px;
+  color: #667eea;
+}
+
+.venumain-venue-map {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  background: linear-gradient(45deg, #f8f9ff 0%, #e8f0ff 100%);
+  border-radius: 15px;
+  border: 2px solid #e0e7ff;
+  overflow: hidden;
+}
+
+/* Pin Styles */
+.venumain-venue-pin {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+  z-index: 10;
+}
+
+.venumain-venue-pin:hover {
+  transform: rotate(-45deg) scale(1.2);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+}
+
+.venumain-venue-pin::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  width: 16px;
+  height: 16px;
+  background: white;
+  border-radius: 50%;
+}
+
+.venumain-venue-pin.venumain-active {
+  background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+  animation: venumain-pulse 2s infinite;
+}
+
+@keyframes venumain-pulse {
+  0%,
+  100% {
+    transform: rotate(-45deg) scale(1);
+  }
+  50% {
+    transform: rotate(-45deg) scale(1.15);
+  }
+}
+
+.venumain-pin-label {
+  position: absolute;
+  top: -35px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.venumain-venue-pin:hover .venumain-pin-label {
+  opacity: 1;
+}
+
+/* Info Panel Styles */
+.venumain-info-panel {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  position: sticky;
+  top: 20px;
+  backdrop-filter: blur(5px);
+}
+
+.venumain-info-panel h2 {
+  color: #667eea;
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+}
+
+.venumain-venue-info {
+  display: none;
+}
+
+.venumain-venue-info.venumain-active {
+  display: block;
+  animation: venumain-fadeIn 0.5s ease;
+}
+
+@keyframes venumain-fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.venumain-capacity-chart {
+  margin: 20px 0;
+  padding: 20px;
+  background: linear-gradient(135deg, #f8f9ff, #e8f0ff);
+  border-radius: 10px;
+  border-left: 4px solid #667eea;
+}
+
+.venumain-layout-options {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.venumain-layout-btn {
+  padding: 10px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 12px;
+}
+
+.venumain-layout-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.venumain-layout-btn.venumain-active {
+  background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+}
+
+.venumain-photo-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.venumain-photo-placeholder {
+  aspect-ratio: 16/9;
+  background: linear-gradient(45deg, #ddd, #f0f0f0);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  font-size: 12px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  overflow: hidden;
+}
+
+.venumain-photo-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.venumain-photo-placeholder:hover {
+  transform: scale(1.05);
+}
+
+.venumain-view-360 {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 25px;
+  cursor: pointer;
+  margin-top: 15px;
+  width: 100%;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.venumain-view-360:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.venumain-default-info {
+  text-align: center;
+  color: #666;
+  padding: 40px 20px;
+}
+
+.venumain-default-info h3 {
+  color: #667eea;
+  margin-bottom: 15px;
+}
+
+/* Venue-specific positioning */
+.venumain-pin-grand-ballroom {
+  top: 30%;
+  left: 25%;
+}
+.venumain-pin-small-ballrooms {
+  top: 45%;
+  left: 60%;
+}
+.venumain-pin-garden-area {
+  top: 70%;
+  left: 20%;
+}
+.venumain-pin-rooftop-terrace {
+  top: 15%;
+  left: 70%;
+}
+.venumain-pin-water-view-lounge {
+  top: 60%;
+  left: 75%;
+}
+
+/* Features List */
+.venumain-features-list {
+  list-style: none;
+  margin: 15px 0;
+}
+
+.venumain-features-list li {
+  padding: 5px 0;
+  display: flex;
+  align-items: center;
+}
+
+.venumain-features-list li::before {
+  content: "✓";
+  color: #667eea;
+  font-weight: bold;
+  margin-right: 10px;
+  width: 20px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .venumain-main-content {
+    grid-template-columns: 1fr;
+  }
+
+  .venumain-venue-map {
+    height: 400px;
+  }
+
+  .venumain-info-panel {
+    position: static;
+  }
+
+  .venumain-header h1 {
+    font-size: 2rem;
+  }
+}

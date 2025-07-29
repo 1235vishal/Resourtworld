@@ -1,0 +1,89 @@
+/* Container */
+.testimonial-add-container {
+  max-width: 600px;
+  margin: 40px auto;
+  background: #fffaf7;
+  padding: 2rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.07);
+  border-radius: 12px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  border-left: 6px solid #e9c0a4;
+}
+
+.testimonial-add-container h2 {
+  margin-bottom: 20px;
+  color: #6d4c41;
+  text-align: center;
+}
+
+/* Form layout */
+.testimonial-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Input Fields */
+.testimonial-form input,
+.testimonial-form textarea {
+  padding: 12px 14px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  transition: border-color 0.3s;
+  background: #fff;
+}
+
+.testimonial-form input:focus,
+.testimonial-form textarea:focus {
+  outline: none;
+  border-color: #e9c0a4;
+}
+
+/* File input customization (if needed) */
+.testimonial-form input[type="file"] {
+  border: none;
+  padding: 0;
+}
+
+/* Preview image */
+.testimonial-form img {
+  max-width: 100px;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+/* Submit button */
+.testimonial-form button {
+  padding: 12px;
+  background-color: #e9c0a4;
+  color: #4a362a;
+  font-weight: 600;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.testimonial-form button:hover {
+  background-color: #d6a57c;
+  color: white;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 600px) {
+  .testimonial-add-container {
+    padding: 1.5rem;
+  }
+
+  .testimonial-form input,
+  .testimonial-form textarea {
+    font-size: 15px;
+  }
+
+  .testimonial-form button {
+    font-size: 15px;
+  }
+}

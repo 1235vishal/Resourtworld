@@ -1,0 +1,394 @@
+/* MenuSection.css */
+
+.menu-section {
+  background-color: #f5f1ed;
+  padding: 80px 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.menu-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 100%;
+}
+
+.menu-header {
+  text-align: left;
+  margin-bottom: 60px;
+  padding-left: 20px;
+}
+
+.menu-title {
+  font-size: 4.5rem;
+  font-weight: 400;
+  color: #2d2d2d;
+  margin: 0;
+  line-height: 1.1;
+  font-family: "Playfair Display", serif;
+  letter-spacing: -0.02em;
+}
+
+.menu-subtitle {
+  font-size: 0.9rem;
+  color: #b8a898;
+  margin: 12px 0 0 0;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-family: "Inter", sans-serif;
+}
+
+.menu-subtitle::before {
+  content: "";
+  display: inline-block;
+  width: 60px;
+  height: 2px;
+  background-color: #d4a574;
+  margin-right: 20px;
+  vertical-align: middle;
+}
+
+.menu-content-wrapper {
+  position: relative;
+}
+
+.scroll-controls {
+  position: absolute;
+  /* top: 0;
+  right: 20px; */
+  top: -85px;
+  right: 1px;
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+
+.scroll-button {
+  width: 44px;
+  height: 44px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.scroll-button:hover:not(.disabled) {
+  background: white;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+.scroll-button:active:not(.disabled) {
+  transform: translateY(0);
+}
+
+.scroll-button.disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.scroll-button svg {
+  color: #2d2d2d;
+  transition: color 0.3s ease;
+}
+
+.scroll-button:hover:not(.disabled) svg {
+  color: #d4a574;
+}
+
+.menu-scroll-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.menu-scroll-container {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 0 20px;
+}
+
+.menu-scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+.menu-card {
+  flex: 0 0 auto;
+  width: 400px;
+  height: 280px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.menu-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.menu-card-image {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.menu-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.menu-card:hover .menu-card-image img {
+  transform: scale(1.08);
+}
+
+.menu-card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.4) 0%,
+    rgba(0, 0, 0, 0.1) 50%,
+    rgba(0, 0, 0, 0.6) 100%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.4s ease;
+}
+
+.menu-card:hover .menu-card-overlay {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.5) 0%,
+    rgba(0, 0, 0, 0.2) 50%,
+    rgba(0, 0, 0, 0.7) 100%
+  );
+}
+
+.menu-card-title {
+  color: white;
+  font-size: 2.2rem;
+  font-weight: 300;
+  text-align: center;
+  margin: 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  font-family: "Playfair Display", serif;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  transition: transform 0.4s ease;
+}
+
+.menu-card:hover .menu-card-title {
+  transform: translateY(-4px);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .menu-title {
+    font-size: 3.8rem;
+  }
+
+  .menu-card {
+    width: 360px;
+    height: 260px;
+  }
+
+  .menu-card-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .menu-section {
+    padding: 50px 0;
+    min-height: 70vh;
+  }
+
+  .menu-container {
+    padding: 0 16px;
+  }
+
+  .menu-header {
+    margin-bottom: 40px;
+    padding-left: 16px;
+  }
+
+  .menu-title {
+    font-size: 2.8rem;
+  }
+
+  .menu-subtitle {
+    font-size: 0.8rem;
+  }
+
+  .menu-subtitle::before {
+    width: 40px;
+    margin-right: 16px;
+  }
+
+  .scroll-controls {
+    right: 16px;
+  }
+
+  .scroll-button {
+    width: 40px;
+    height: 40px;
+  }
+
+  .menu-scroll-container {
+    gap: 16px;
+    padding: 0 16px;
+  }
+
+  .menu-card {
+    width: 280px;
+    height: 200px;
+  }
+
+  .menu-card-title {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .menu-section {
+    padding: 40px 0;
+    min-height: 60vh;
+  }
+
+  .menu-container {
+    padding: 0 12px;
+  }
+
+  .menu-header {
+    margin-bottom: 32px;
+    padding-left: 12px;
+  }
+
+  .menu-title {
+    font-size: 2.2rem;
+  }
+
+  .menu-subtitle {
+    font-size: 0.75rem;
+  }
+
+  .scroll-controls {
+    right: 12px;
+    top: -95px;
+  }
+
+  .scroll-button {
+    width: 36px;
+    height: 36px;
+  }
+
+  .menu-scroll-container {
+    gap: 12px;
+    padding: 0 12px;
+  }
+
+  .menu-card {
+    width: 240px;
+    height: 180px;
+  }
+
+  .menu-card-title {
+    font-size: 1.4rem;
+  }
+
+  .menu-card:hover {
+    transform: translateY(-4px);
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .menu-card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .menu-card:hover .menu-card-image img {
+    transform: none;
+  }
+
+  .menu-card:hover .menu-card-overlay {
+    background: linear-gradient(
+      135deg,
+      rgba(0, 0, 0, 0.4) 0%,
+      rgba(0, 0, 0, 0.1) 50%,
+      rgba(0, 0, 0, 0.6) 100%
+    );
+  }
+
+  .menu-card:hover .menu-card-title {
+    transform: none;
+  }
+
+  .scroll-button:hover {
+    transform: none;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .menu-card-image img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: optimize-contrast;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .menu-card,
+  .menu-card-image img,
+  .menu-card-title,
+  .scroll-button {
+    transition: none;
+  }
+
+  .menu-scroll-container {
+    scroll-behavior: auto;
+  }
+}
+
+/* Focus states for accessibility */
+.scroll-button:focus {
+  outline: 2px solid #d4a574;
+  outline-offset: 2px;
+}
+
+.menu-card:focus {
+  outline: 2px solid #d4a574;
+  outline-offset: 4px;
+}
+.maincontact-map-details {
+  text-align: center;
+  font-size: 0.95rem;
+  margin-top: 10px;
+  color: #333;
+}

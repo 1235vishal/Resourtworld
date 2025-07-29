@@ -1,0 +1,240 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Roboto:wght@300;400;500&display=swap");
+
+.our-team {
+  width: 100%;
+  padding: 80px 20px;
+  box-sizing: border-box;
+  background: linear-gradient(to bottom, #f8f1eb 30%, #ffffff 70%);
+  font-family: "Roboto", sans-serif;
+  color: #333;
+}
+
+.team-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.team-header {
+  text-align: left;
+  margin-bottom: 60px;
+  padding-left: 20px;
+}
+
+.team-header h2 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(32px, 4vw, 42px);
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #222;
+  letter-spacing: 0.5px;
+}
+
+.team-header p {
+  font-size: clamp(14px, 2vw, 16px);
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-style: italic;
+  font-weight: 300;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 40px;
+  justify-content: center;
+  padding: 0 20px;
+}
+
+.member-card {
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.image-wrapper {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.circle-frame {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto;
+  border: 5px solid #f0f0f0;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.circle-frame:hover {
+  transform: scale(1.05);
+  border-color: #d4a574;
+}
+
+.member-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.member-image:hover {
+  transform: scale(1.1);
+}
+
+.social-icons {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  display: flex;
+  gap: 12px;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.image-wrapper:hover .social-icons {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #fff;
+  color: #555;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.social-link:hover {
+  background-color: #d4a574;
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+.icon {
+  font-size: 16px;
+}
+
+.member-name {
+  font-family: "Playfair Display", serif;
+  font-size: 20px;
+  font-weight: 600;
+  margin: 10px 0 5px;
+  color: #222;
+  letter-spacing: 0.5px;
+}
+
+.member-position {
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 500;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .team-grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 30px;
+  }
+
+  .circle-frame {
+    width: 180px;
+    height: 180px;
+  }
+}
+
+@media (max-width: 768px) {
+  .our-team {
+    padding: 60px 15px;
+  }
+
+  .team-header {
+    padding-left: 10px;
+  }
+
+  .team-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 25px;
+  }
+
+  .circle-frame {
+    width: 160px;
+    height: 160px;
+  }
+
+  .member-name {
+    font-size: 18px;
+  }
+
+  .member-position {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 576px) {
+  .team-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 20px;
+  }
+
+  .circle-frame {
+    width: 140px;
+    height: 140px;
+  }
+
+  .team-header h2 {
+    font-size: 32px;
+  }
+
+  .team-header p {
+    font-size: 14px;
+  }
+
+  .member-name {
+    font-size: 16px;
+  }
+
+  .member-position {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 400px) {
+  .team-grid {
+    grid-template-columns: 1fr;
+    max-width: 250px;
+    margin: 0 auto;
+  }
+
+  .circle-frame {
+    width: 130px;
+    height: 130px;
+  }
+
+  .team-header h2 {
+    font-size: 28px;
+  }
+
+  .team-header p {
+    font-size: 12px;
+  }
+
+  .social-link {
+    width: 32px;
+    height: 32px;
+  }
+
+  .icon {
+    font-size: 14px;
+  }
+}

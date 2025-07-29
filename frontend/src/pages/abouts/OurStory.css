@@ -1,0 +1,167 @@
+.our-story {
+  position: relative;
+  padding: 100px 20px;
+  font-family: "Georgia", "serif";
+  background: linear-gradient(to bottom, #f9f6f2 50%, #fff 50%);
+  z-index: 1;
+}
+
+.story-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.story-header {
+  text-align: left;
+  margin-bottom: 50px;
+}
+
+.story-header h2 {
+  font-size: 42px;
+  font-weight: 500;
+  margin: 0;
+  font-family: "Playfair Display", serif;
+}
+
+.subheading {
+  font-style: italic;
+  color: #aaa;
+  font-size: 14px;
+  margin-top: 8px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-family: "Poppins", sans-serif;
+}
+
+.story-card {
+  display: flex;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  align-items: stretch;
+  justify-content: space-between;
+  margin-top: 50px;
+  flex-wrap: wrap;
+}
+
+.story-image {
+  flex: 1;
+  min-width: 300px;
+  position: relative;
+  overflow: hidden;
+}
+
+.story-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.story-image img:hover {
+  transform: scale(1.05);
+}
+
+.story-text {
+  flex: 1;
+  min-width: 320px;
+  padding: 50px 50px 50px 40px;
+  position: relative;
+  font-family: "Poppins", sans-serif;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.story-icon {
+  margin-bottom: 20px;
+}
+
+.main-text {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  line-height: 1.6;
+  color: #222;
+}
+
+.sub-text {
+  font-size: 15px;
+  color: #666;
+  line-height: 1.8;
+}
+
+.dots-container {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 25px;
+  gap: 10px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background-color: #ddd;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dot.active {
+  background-color: #d4a574;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .story-card {
+    flex-direction: column;
+  }
+
+  .story-image {
+    order: 1;
+    height: 300px; /* Fixed height for smaller screens */
+  }
+
+  .story-text {
+    order: 2;
+    text-align: left;
+    padding: 30px 25px;
+  }
+
+  .story-header h2 {
+    font-size: 32px;
+  }
+
+  .dots-container {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .story-header h2 {
+    font-size: 28px;
+  }
+
+  .story-text {
+    padding: 20px;
+  }
+
+  .story-image {
+    height: 200px; /* Adjusted height for very small screens */
+  }
+
+  .main-text {
+    font-size: 16px;
+  }
+
+  .sub-text {
+    font-size: 14px;
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+  }
+}

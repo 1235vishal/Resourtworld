@@ -1,0 +1,97 @@
+.maincontact-section {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  font-family: "Georgia", serif;
+}
+
+.maincontact-map-container {
+  flex: 1;
+}
+
+.maincontact-google-map {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.maincontact-form-container {
+  flex: 1;
+  padding: 60px 40px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.maincontact-title {
+  font-size: 48px;
+  font-weight: 500;
+  margin-bottom: 0;
+}
+
+.maincontact-subtitle {
+  letter-spacing: 2px;
+  color: #888;
+  margin: 10px 0 40px;
+  font-size: 14px;
+}
+
+.maincontact-form input,
+.maincontact-form textarea {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  font-size: 16px;
+  background: transparent;
+  outline: none;
+}
+
+.maincontact-submit-btn {
+  background-color: #efc2a8;
+  padding: 15px 40px;
+  border: none;
+  border-radius: 30px;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  align-self: start;
+  transition: background 0.3s ease;
+}
+
+.maincontact-submit-btn:hover {
+  background-color: #e0b398;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .maincontact-section {
+    flex-direction: column;
+  }
+
+  .maincontact-google-map {
+    width: 100%;
+    height: 455px;
+    border: 0;
+  }
+
+  .maincontact-map-container {
+    height: 300px;
+  }
+
+  .maincontact-form-container {
+    padding: 40px 20px;
+  }
+
+  .maincontact-title {
+    font-size: 36px;
+  }
+
+  .maincontact-form input,
+  .maincontact-form textarea {
+    font-size: 14px;
+  }
+}

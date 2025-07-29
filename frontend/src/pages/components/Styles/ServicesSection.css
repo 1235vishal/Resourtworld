@@ -1,0 +1,418 @@
+/* ServicesSection.css */
+.services-section {
+  position: relative;
+  padding: 120px 0;
+  background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
+  overflow: hidden;
+  min-height: 100vh;
+}
+
+.services-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Section Header Styles */
+.services-header {
+  text-align: center;
+  margin-bottom: 80px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.services-main-title {
+  font-family: "Georgia", serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 300;
+  font-style: italic;
+  color: #2c2c2c;
+  line-height: 1.3;
+  margin-bottom: 20px;
+  letter-spacing: -0.5px;
+  opacity: 0;
+}
+
+.services-main-subtitle {
+  font-family: "Georgia", serif;
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+  font-weight: 300;
+  color: #666;
+  line-height: 1.5;
+  opacity: 0;
+}
+
+/* Services Grid - Exact Layout Match */
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 600px;
+}
+
+/* Service Card Base Styles */
+.service-card {
+  position: relative;
+  border-radius: 0; /* No border radius as per image */
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+/* Grid Positioning - Exact Match to Image Layout */
+.service-card--corporate {
+  grid-column: 1 / 2;
+  grid-row: 1 / 3; /* Takes full height on left */
+}
+
+.service-card--parties {
+  grid-column: 2 / 4; /* Spans across top right */
+  grid-row: 1 / 2;
+}
+
+.service-card--wedding {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+}
+
+.service-card--event-planning {
+  grid-column: 3 / 4;
+  grid-row: 2 / 3;
+}
+
+/* Image Container */
+.service-card__image-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.service-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  will-change: transform;
+}
+
+.service-card__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.3) 0%,
+    rgba(0, 0, 0, 0.1) 50%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
+  transition: all 0.4s ease;
+  z-index: 1;
+}
+
+/* Content Styles */
+.service-card__content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  z-index: 3;
+  text-align: center;
+  width: 100%;
+  padding: 20px;
+  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.service-card__title {
+  font-family: "Georgia", serif;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 300;
+  font-style: italic;
+  margin: 0;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+  letter-spacing: 1px;
+  transition: all 0.4s ease;
+}
+
+/* Specific title adjustments for different cards */
+.service-card--corporate .service-card__title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+}
+
+.service-card--parties .service-card__title {
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.service-card--wedding .service-card__title {
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+}
+
+.service-card--event-planning .service-card__title {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+/* Hover Effects */
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.service-card:hover .service-card__image {
+  transform: scale(1.05);
+}
+
+.service-card:hover .service-card__overlay {
+  background: linear-gradient(
+    135deg,
+    rgba(244, 162, 97, 0.7) 0%,
+    rgba(231, 127, 103, 0.5) 50%,
+    rgba(244, 162, 97, 0.8) 100%
+  );
+}
+
+.service-card:hover .service-card__title {
+  transform: scale(1.05);
+  text-shadow: 3px 3px 12px rgba(0, 0, 0, 0.8);
+}
+
+/* Active/Focus States */
+.service-card:focus {
+  outline: 3px solid #f4a261;
+  outline-offset: 5px;
+}
+
+.service-card:active {
+  transform: translateY(-5px) scale(0.98);
+}
+
+/* Decorative Elements */
+.services-decorative-elements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.decorative-circle {
+  position: absolute;
+  border-radius: 50%;
+  background: linear-gradient(
+    135deg,
+    rgba(244, 162, 97, 0.1),
+    rgba(231, 127, 103, 0.1)
+  );
+  animation: float 8s ease-in-out infinite;
+}
+
+.decorative-circle--1 {
+  width: 200px;
+  height: 200px;
+  top: 10%;
+  right: 5%;
+  animation-delay: 0s;
+}
+
+.decorative-circle--2 {
+  width: 150px;
+  height: 150px;
+  bottom: 20%;
+  left: 8%;
+  animation-delay: 4s;
+}
+
+.decorative-line {
+  position: absolute;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(244, 162, 97, 0.2),
+    transparent
+  );
+  height: 2px;
+}
+
+.decorative-line--1 {
+  width: 300px;
+  top: 25%;
+  left: -100px;
+  transform: rotate(45deg);
+}
+
+.decorative-line--2 {
+  width: 400px;
+  bottom: 30%;
+  right: -150px;
+  transform: rotate(-30deg);
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(180deg);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .services-section {
+    padding: 80px 0;
+  }
+
+  .services-header {
+    margin-bottom: 60px;
+  }
+
+  .services-grid {
+    height: 500px;
+    gap: 15px;
+  }
+
+  .service-card__title {
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+  }
+}
+
+@media (max-width: 768px) {
+  .services-section {
+    padding: 60px 0;
+  }
+
+  .services-container {
+    padding: 0 15px;
+  }
+
+  .services-header {
+    margin-bottom: 40px;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 200px);
+    gap: 15px;
+    height: auto;
+  }
+
+  .service-card--corporate,
+  .service-card--parties,
+  .service-card--wedding,
+  .service-card--event-planning {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .service-card__title {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+  }
+
+  .decorative-circle--1,
+  .decorative-circle--2 {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .services-section {
+    padding: 40px 0;
+  }
+
+  .services-container {
+    padding: 0 10px;
+  }
+
+  .services-grid {
+    grid-template-rows: repeat(4, 180px);
+    gap: 10px;
+  }
+
+  .service-card__content {
+    padding: 15px;
+  }
+
+  .service-card__title {
+    font-size: 1.5rem;
+  }
+
+  .service-card:hover {
+    transform: translateY(-5px);
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .service-card__overlay {
+    background: rgba(0, 0, 0, 0.8);
+  }
+
+  .service-card__title {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .service-card,
+  .service-card__image,
+  .service-card__content,
+  .service-card__title {
+    transition: none;
+  }
+
+  .decorative-circle {
+    animation: none;
+  }
+
+  .service-card:hover {
+    transform: none;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .services-section {
+    background: white;
+    padding: 40px 0;
+  }
+
+  .services-decorative-elements {
+    display: none;
+  }
+
+  .service-card {
+    break-inside: avoid;
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+
+  .service-card__overlay {
+    display: none;
+  }
+
+  .service-card__content {
+    color: black;
+    position: static;
+    transform: none;
+  }
+
+  .service-card__title {
+    text-shadow: none;
+    transform: none;
+  }
+}
