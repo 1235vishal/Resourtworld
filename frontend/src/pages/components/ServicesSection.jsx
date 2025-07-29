@@ -12,32 +12,71 @@ const ServicesSection = () => {
   const subtitleRef = useRef(null);
   const servicesGridRef = useRef(null);
 
+  //   const servicesData = [
+  //     {
+  //       id: "corporate-catering",
+  //       title: "Corporate",
+  //       subtitle: "Professional catering solutions for your business events",
+  //       image:
+  //         "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80",
+  //       alt: "Corporate catering event with professionals",
+  //       link: "/corporateevents",
+  //     },
+  //     {
+  //       id: "baby-shower",
+  //       title: "Baby Shower",
+  //       subtitle: "Memorable celebrations with exceptional service",
+  //       image:
+  //         "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80",
+  //       alt: "Party catering with cocktails and drinks",
+  //       link: "/Wedding",
+  //     },
+  //     {
+  //       id: "wedding-catering",
+  //       title: "Wedding",
+  //       subtitle: "Your perfect day deserves perfect catering",
+  //       image:
+  //         "https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80",
+  //       alt: "Elegant wedding venue setup",
+  //       link: "/Wedding",
+  //     },
+  //     {
+  //       id: "event-planning",
+  //       title: "Event Planning",
+  //       subtitle: "Complete event management from concept to execution",
+  //       image:
+  //         "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80",
+  //       alt: "Event planning and decoration setup",
+  //       link: "/EventServices",
+  //     },
+  //   ];
+
   const servicesData = [
     {
       id: "corporate-catering",
       title: "Corporate",
       subtitle: "Professional catering solutions for your business events",
       image:
-        "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80",
+        "https://images.unsplash.com/photo-1540317580384-e5d43616b9aa?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGNvcnBvcmF0ZSUyMGV2ZW50fGVufDB8fDB8fHww",
       alt: "Corporate catering event with professionals",
       link: "/corporateevents",
     },
     {
-      id: "party-catering",
+      id: "baby-shower",
       title: "Baby Shower",
       subtitle: "Memorable celebrations with exceptional service",
       image:
-        "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80",
-      alt: "Party catering with cocktails and drinks",
-      link: "/Wedding",
+        "https://wp-media-partyslate.imgix.net/2023/03/can-bearly-wait_1483718-scaled.jpg?auto=compress%2Cformat&fit=scale&h=841&ixlib=php-3.3.1&w=1260&wpsize=huge",
+      alt: "Baby shower celebration with balloons and cake",
+      link: "/BabyShower",
     },
     {
       id: "wedding-catering",
       title: "Wedding",
       subtitle: "Your perfect day deserves perfect catering",
       image:
-        "https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80",
-      alt: "Elegant wedding venue setup",
+        "https://images.unsplash.com/photo-1625076932159-61a032e2b7ad?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8d2VkZGluZyUyMGV2ZW50fGVufDB8fDB8fHww",
+      alt: "Bride and groom at wedding reception",
       link: "/Wedding",
     },
     {
@@ -45,7 +84,7 @@ const ServicesSection = () => {
       title: "Event Planning",
       subtitle: "Complete event management from concept to execution",
       image:
-        "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80",
+        "https://images.unsplash.com/photo-1528605248644-14dd04022da1?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80",
       alt: "Event planning and decoration setup",
       link: "/EventServices",
     },

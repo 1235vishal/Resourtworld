@@ -29,7 +29,7 @@ const Home = () => {
       <TestimonialSection />
       <Gallery />
       {/* <TourHero /> */}
-      <NewsSection />
+      {/* <NewsSection /> */}
       <MainContact />
       <Footer />
     </>
