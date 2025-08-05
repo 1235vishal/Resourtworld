@@ -1,0 +1,42 @@
+/* ========= Global Font Imports ========== */
+body {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300; /* Light */
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+  color: #111;
+}
+
+/* Headings */
+h1, h2, h3 {
+  font-family: 'Cormorant Garamond', 'Playfair Display', serif;
+  font-weight: 600; /* Semi Bold */
+}
+
+/* Paragraph Text */
+p {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+}
+
+/* Navigation / Menu */
+nav, .menu {
+  font-family: 'Spinnaker', sans-serif;
+}
+
+/* Special Brand Name: "Magnoliya Grand Manor" */
+.brand-name {
+  font-family: 'Dancing Script', cursive;
+}
+
+/* Quote / Special Highlight */
+blockquote, .highlight {
+  font-family: 'Playfair Display', serif;
+}
+
+/* Buttons */
+button {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+}

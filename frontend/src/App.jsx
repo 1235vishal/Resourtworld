@@ -70,6 +70,7 @@ import AdminNews from "./admin/components/News";
 import TestimonialAdd from "./admin/components/TestimonialAdd";
 import TestimonialTable from "./admin/components/TestimonialTable";
 
+import "./App.css";
 import Aboutus from "./pages/Aboutus";
 import BookingForm from "./pages/Bookingform";
 import Contactus from "./pages/ContactUs";

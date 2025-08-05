@@ -21,7 +21,7 @@ const Home = () => {
       <WelcomeSection />
       {/* <SerQuickNav /> */}
 
-      <ServicesSection />
+      {/* <ServicesSection /> */}
       <AboutUs />
       {/* <MenuSection /> */}
 
