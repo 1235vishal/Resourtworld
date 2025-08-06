@@ -1,5 +1,3 @@
-
-
 // // // import { gsap } from "gsap";
 // // // import { useEffect, useRef, useState } from "react";
 // // // import { Link } from "react-router-dom";
@@ -357,7 +355,6 @@
 // // // };
 
 // // // export default CateringHero;
-
 
 // // import { gsap } from "gsap";
 // // import { useEffect, useRef, useState } from "react";
@@ -1012,17 +1009,17 @@ const CateringHero = () => {
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   const [touchStart, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
   const autoSlideIntervalRef = useRef(null);
 
   const slides = [
     {
       id: 0,
       video: "./Hero/1.mp4",
-      poster: "./Hero/1.jpg",
       title: "Magnoliya Grand Manor",
       subtitle: "Grand Event Venue",
       description:
-        "Plan your dream wedding, elegant business meeting, or joyful family celebration with us. Our venue offers a perfect blend of grandeur and personalized service, creating unforgettable moments for you and your guests.",
+        "Whether you're planning a dream wedding, an elegant business meeting, a joyful family celebration, or anything in between, our venue is here to bring your vision to life. From romantic wedding receptions to corporate events and private parties, we provide the perfect blend of grandeur, exceptional hospitality, and personalized service. Step into a world where every detail is designed to create unforgettable moments you and your guests will cherish forever.",
       buttonText: "Book Now",
       alt: "Magnoliya Grand Manor",
       link: "https://magnoliyagrandmanorconferenceandeventcenter.tripleseat.com/booking_request/35062",
@@ -1030,11 +1027,10 @@ const CateringHero = () => {
     {
       id: 1,
       video: "./Hero/2.mp4",
-      poster: "./Hero/2.jpg",
-      title: "Exceptional Facilities",
-      subtitle: "Premium Event Spaces",
+      title: "Magnoliya Grand Manor",
+      subtitle: "Exceptional Facilities",
       description:
-        "From intimate corporate retreats to grand galas, our versatile venues feature advanced audiovisual capabilities and flexible configurations to make your event truly spectacular.",
+        "Whether you're planning an intimate corporate retreat, a grand gala, or a dream wedding, our venues are thoughtfully designed to meet your unique needs. With advanced audiovisual capabilities and flexible configurations, your event will shine at MgM.",
       buttonText: "View Venues",
       alt: "Magnoliya Grand Manor Facilities",
       link: "https://magnoliyagrandmanorconferenceandeventcenter.tripleseat.com/booking_request/35062",
@@ -1042,11 +1038,10 @@ const CateringHero = () => {
     {
       id: 2,
       video: "./Hero/3.mp4",
-      poster: "./Hero/3.jpg",
-      title: "Convenience and Accessibility",
+      title: "Magnoliya Grand Manor",
       subtitle: "Prime Location",
       description:
-        "Located minutes from Dulles International Airport and Washington, D.C., our venue combines easy access with an elegant, tranquil setting perfect for creating lasting memories.",
+        "Located just outside the bustling capital city of Washington, D.C., and only minutes from Dulles International Airport (IAD), MGM offers the ideal blend of convenience and tranquility. Our prime location makes us a sought-after choice for weddings, corporate events, and special celebrations, providing guests with easy access while surrounding them in a elegant, picturesque setting perfect for unforgettable memories.",
       buttonText: "Get Directions",
       alt: "Magnoliya Grand Manor Location",
       link: "https://magnoliyagrandmanorconferenceandeventcenter.tripleseat.com/booking_request/35062",
@@ -1054,21 +1049,14 @@ const CateringHero = () => {
   ];
 
   useEffect(() => {
-    startAutoSlide();
-
-    // Initialize videos
-    const videos = document.querySelectorAll(".hero-bg");
-    videos.forEach((video, index) => {
-      if (video) {
-        video.muted = true; // Mute to ensure autoplay
-        video.currentTime = 0;
-        video.load();
-        video.play().catch((error) => {
-          console.error(`Error playing video ${slides[index].video}:`, error);
-        });
-      }
+    // Preload videos
+    slides.forEach((slide) => {
+      const video = document.createElement("video");
+      video.src = slide.video;
+      video.preload = "auto";
     });
 
+    startAutoSlide();
     return () => {
       if (autoSlideIntervalRef.current) {
         clearInterval(autoSlideIntervalRef.current);
@@ -1077,11 +1065,10 @@ const CateringHero = () => {
   }, []);
 
   useEffect(() => {
-    // Update video playback on slide change
     const videos = document.querySelectorAll(".hero-bg");
     videos.forEach((video, index) => {
       if (video) {
-        video.muted = true; // Mute to ensure autoplay
+        video.muted = true;
         video.currentTime = 0;
         video.play().catch((error) => {
           console.error(`Error playing video ${slides[index].video}:`, error);
@@ -1176,6 +1163,12 @@ const CateringHero = () => {
       onMouseLeave={handleMouseLeave}
       tabIndex={0}
     >
+      {isLoading && (
+        <div className="hero-loading">
+          <div className="loading-spinner"></div>
+        </div>
+      )}
+
       {slides.map((slide, index) => (
         <div
           key={slide.id}
@@ -1184,25 +1177,23 @@ const CateringHero = () => {
           }`}
           data-slide={index}
         >
-          <img
-            className="hero-bg-fallback"
-            src={slide.poster}
-            alt={slide.alt}
-          />
           <video
             className="hero-bg"
             autoPlay
             loop
             muted
-            playsinline
+            playsInline
             preload="auto"
             src={slide.video}
+            alt={slide.alt}
             onError={() => handleVideoError(index)}
-            onCanPlay={() => {
+            onCanPlayThrough={() => {
+              setIsLoading(false);
               const video = document.querySelector(
                 `.hero-slide[data-slide="${index}"] .hero-bg`
               );
               if (video && index === currentSlideIndex) {
+                video.style.opacity = 1;
                 video.play().catch((error) => {
                   console.error(
                     `Error playing video ${slides[index].video}:`,
@@ -1213,13 +1204,7 @@ const CateringHero = () => {
             }}
           />
           <div className="hero-content">
-            <h2
-              className={`hero-title ${
-                slide.title === "Magnoliya Grand Manor" ? "magnoliya-title" : ""
-              }`}
-            >
-              {slide.title}
-            </h2>
+            <h2 className="hero-title magnoliya-title">{slide.title}</h2>
             <p className="hero-subtitle">{slide.subtitle}</p>
             <div className="hero-divider"></div>
             <div className="hero-description">{slide.description}</div>
