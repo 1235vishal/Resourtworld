@@ -1000,7 +1000,6 @@
 
 // export default CateringHero;
 
-
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Styles/CateringHero.css";
@@ -1009,13 +1008,14 @@ const CateringHero = () => {
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   const [touchStart, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
-  const [isLoading, setIsLoading] = useState(true);
+  const videoRefs = useRef([]);
   const autoSlideIntervalRef = useRef(null);
 
   const slides = [
     {
       id: 0,
       video: "./Hero/1.mp4",
+      poster: "./Hero/1.jpg", // Add poster images for each video
       title: "Magnoliya Grand Manor",
       subtitle: "Grand Event Venue",
       description:
@@ -1027,6 +1027,7 @@ const CateringHero = () => {
     {
       id: 1,
       video: "./Hero/2.mp4",
+      poster: "./Hero/2.jpg",
       title: "Magnoliya Grand Manor",
       subtitle: "Exceptional Facilities",
       description:
@@ -1038,6 +1039,7 @@ const CateringHero = () => {
     {
       id: 2,
       video: "./Hero/3.mp4",
+      poster: "./Hero/3.jpg",
       title: "Magnoliya Grand Manor",
       subtitle: "Prime Location",
       description:
@@ -1049,12 +1051,34 @@ const CateringHero = () => {
   ];
 
   useEffect(() => {
-    // Preload videos
-    slides.forEach((slide) => {
-      const video = document.createElement("video");
-      video.src = slide.video;
-      video.preload = "auto";
-    });
+    // Preload videos and posters
+    const preloadAssets = async () => {
+      await Promise.all(
+        slides.map((slide) => {
+          const video = document.createElement("video");
+          video.src = slide.video;
+          video.preload = "auto";
+          video.load();
+
+          const img = new Image();
+          img.src = slide.poster;
+
+          return new Promise((resolve) => {
+            video.oncanplaythrough = resolve;
+            img.onload = resolve;
+          });
+        })
+      );
+
+      // Start playing the current video
+      if (videoRefs.current[currentSlideIndex]) {
+        videoRefs.current[currentSlideIndex]
+          .play()
+          .catch((e) => console.log("Autoplay prevented:", e));
+      }
+    };
+
+    preloadAssets();
 
     startAutoSlide();
     return () => {
@@ -1065,14 +1089,15 @@ const CateringHero = () => {
   }, []);
 
   useEffect(() => {
-    const videos = document.querySelectorAll(".hero-bg");
-    videos.forEach((video, index) => {
-      if (video) {
-        video.muted = true;
+    // When slide changes, play the new video and pause others
+    videoRefs.current.forEach((video, index) => {
+      if (!video) return;
+
+      if (index === currentSlideIndex) {
         video.currentTime = 0;
-        video.play().catch((error) => {
-          console.error(`Error playing video ${slides[index].video}:`, error);
-        });
+        video.play().catch((e) => console.log("Autoplay prevented:", e));
+      } else {
+        video.pause();
       }
     });
   }, [currentSlideIndex]);
@@ -1151,6 +1176,15 @@ const CateringHero = () => {
 
   const handleVideoError = (index) => {
     console.error(`Failed to load video: ${slides[index].video}`);
+    // Fallback to poster image if video fails to load
+    const videoElement = videoRefs.current[index];
+    if (videoElement) {
+      videoElement.style.display = "none";
+      const posterElement = videoElement.nextElementSibling;
+      if (posterElement) {
+        posterElement.style.display = "block";
+      }
+    }
   };
 
   return (
@@ -1163,12 +1197,6 @@ const CateringHero = () => {
       onMouseLeave={handleMouseLeave}
       tabIndex={0}
     >
-      {isLoading && (
-        <div className="hero-loading">
-          <div className="loading-spinner"></div>
-        </div>
-      )}
-
       {slides.map((slide, index) => (
         <div
           key={slide.id}
@@ -1178,6 +1206,7 @@ const CateringHero = () => {
           data-slide={index}
         >
           <video
+            ref={(el) => (videoRefs.current[index] = el)}
             className="hero-bg"
             autoPlay
             loop
@@ -1185,23 +1214,21 @@ const CateringHero = () => {
             playsInline
             preload="auto"
             src={slide.video}
+            poster={slide.poster}
             alt={slide.alt}
             onError={() => handleVideoError(index)}
             onCanPlayThrough={() => {
-              setIsLoading(false);
-              const video = document.querySelector(
-                `.hero-slide[data-slide="${index}"] .hero-bg`
-              );
+              const video = videoRefs.current[index];
               if (video && index === currentSlideIndex) {
                 video.style.opacity = 1;
-                video.play().catch((error) => {
-                  console.error(
-                    `Error playing video ${slides[index].video}:`,
-                    error
-                  );
-                });
               }
             }}
+          />
+          <img
+            className="hero-poster"
+            src={slide.poster}
+            alt={slide.alt}
+            style={{ display: "none" }}
           />
           <div className="hero-content">
             <h2 className="hero-title magnoliya-title">{slide.title}</h2>
