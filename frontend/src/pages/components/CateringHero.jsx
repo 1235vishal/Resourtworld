@@ -1,3 +1,5 @@
+
+
 // // // import { gsap } from "gsap";
 // // // import { useEffect, useRef, useState } from "react";
 // // // import { Link } from "react-router-dom";
@@ -355,6 +357,7 @@
 // // // };
 
 // // // export default CateringHero;
+
 
 // // import { gsap } from "gsap";
 // // import { useEffect, useRef, useState } from "react";
@@ -1000,7 +1003,7 @@
 
 // export default CateringHero;
 
-import { gsap } from "gsap";
+
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Styles/CateringHero.css";
@@ -1010,15 +1013,12 @@ const CateringHero = () => {
   const [touchStart, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
   const autoSlideIntervalRef = useRef(null);
-  const heroContainerRef = useRef(null);
-  const floatingElementsRef = useRef(null);
-  const videoRefs = useRef([]);
 
   const slides = [
     {
       id: 0,
       video: "./Hero/1.mp4",
-      poster: "./Hero/1.jpg", // Fallback image
+      poster: "./Hero/1.jpg",
       title: "Magnoliya Grand Manor",
       subtitle: "Grand Event Venue",
       description:
@@ -1030,7 +1030,7 @@ const CateringHero = () => {
     {
       id: 1,
       video: "./Hero/2.mp4",
-      poster: "./Hero/2.jpg", // Fallback image
+      poster: "./Hero/2.jpg",
       title: "Exceptional Facilities",
       subtitle: "Premium Event Spaces",
       description:
@@ -1042,7 +1042,7 @@ const CateringHero = () => {
     {
       id: 2,
       video: "./Hero/3.mp4",
-      poster: "./Hero/3.jpg", // Fallback image
+      poster: "./Hero/3.jpg",
       title: "Convenience and Accessibility",
       subtitle: "Prime Location",
       description:
@@ -1054,16 +1054,15 @@ const CateringHero = () => {
   ];
 
   useEffect(() => {
-    initFloatingElements();
-    animateSlideIn();
     startAutoSlide();
 
     // Initialize videos
-    videoRefs.current.forEach((video, index) => {
+    const videos = document.querySelectorAll(".hero-bg");
+    videos.forEach((video, index) => {
       if (video) {
-        video.muted = index !== currentSlideIndex;
-        video.volume = index === currentSlideIndex ? 0.5 : 0;
+        video.muted = true; // Mute to ensure autoplay
         video.currentTime = 0;
+        video.load();
         video.play().catch((error) => {
           console.error(`Error playing video ${slides[index].video}:`, error);
         });
@@ -1078,17 +1077,11 @@ const CateringHero = () => {
   }, []);
 
   useEffect(() => {
-    animateSlideIn();
-    // Smooth video transition and playback
-    videoRefs.current.forEach((video, index) => {
+    // Update video playback on slide change
+    const videos = document.querySelectorAll(".hero-bg");
+    videos.forEach((video, index) => {
       if (video) {
-        gsap.to(video, {
-          opacity: index === currentSlideIndex ? 1 : 0,
-          duration: 0.8,
-          ease: "power2.inOut",
-        });
-        video.muted = index !== currentSlideIndex;
-        video.volume = index === currentSlideIndex ? 0.5 : 0;
+        video.muted = true; // Mute to ensure autoplay
         video.currentTime = 0;
         video.play().catch((error) => {
           console.error(`Error playing video ${slides[index].video}:`, error);
@@ -1096,140 +1089,6 @@ const CateringHero = () => {
       }
     });
   }, [currentSlideIndex]);
-
-  const initFloatingElements = () => {
-    const floatingContainer = floatingElementsRef.current;
-    if (!floatingContainer) return;
-
-    floatingContainer.innerHTML = "";
-
-    for (let i = 0; i < 15; i++) {
-      const element = document.createElement("div");
-      element.className = "floating-element";
-      element.style.left = Math.random() * 100 + "%";
-      element.style.top = Math.random() * 100 + "%";
-      element.style.animationDelay = Math.random() * 6 + "s";
-      floatingContainer.appendChild(element);
-    }
-  };
-
-  const animateSlideIn = () => {
-    const currentSlide = heroContainerRef.current?.querySelector(
-      `[data-slide="${currentSlideIndex}"]`
-    );
-    if (!currentSlide) return;
-
-    const title = currentSlide.querySelector(".hero-title");
-    const subtitle = currentSlide.querySelector(".hero-subtitle");
-    const description = currentSlide.querySelector(".hero-description");
-    const divider = currentSlide.querySelector(".hero-divider");
-    const button = currentSlide.querySelector(".hero-button");
-
-    gsap.set([title, subtitle, description, divider, button], { opacity: 0 });
-    gsap.set(title, { y: 50 });
-    gsap.set(subtitle, { y: 30 });
-    gsap.set(description, { y: 20 });
-    gsap.set(divider, { scaleX: 0 });
-    gsap.set(button, { y: 20 });
-
-    const tl = gsap.timeline();
-
-    tl.to(title, {
-      opacity: 1,
-      y: 0,
-      duration: 1.2,
-      ease: "power3.out",
-    })
-      .to(
-        subtitle,
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1,
-          ease: "power3.out",
-        },
-        "-=0.8"
-      )
-      .to(
-        divider,
-        {
-          opacity: 1,
-          scaleX: 1,
-          duration: 0.8,
-          ease: "power2.out",
-        },
-        "-=0.6"
-      )
-      .to(
-        description,
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1,
-          ease: "power3.out",
-        },
-        "-=0.5"
-      )
-      .to(
-        button,
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          ease: "back.out(1.7)",
-        },
-        "-=0.4"
-      );
-  };
-
-  const animateSlideOut = () => {
-    const currentSlide = heroContainerRef.current?.querySelector(
-      `[data-slide="${currentSlideIndex}"]`
-    );
-    if (!currentSlide) return;
-
-    const elements = currentSlide.querySelectorAll(
-      ".hero-title, .hero-subtitle, .hero-description, .hero-divider, .hero-button"
-    );
-
-    return gsap.to(elements, {
-      opacity: 0,
-      y: -20,
-      duration: 0.6,
-      ease: "power2.in",
-      stagger: 0.1,
-    });
-  };
-
-  const changeSlide = (direction) => {
-    animateSlideOut();
-
-    setTimeout(() => {
-      let newIndex = currentSlideIndex + direction;
-
-      if (newIndex >= slides.length) {
-        newIndex = 0;
-      } else if (newIndex < 0) {
-        newIndex = slides.length - 1;
-      }
-
-      setCurrentSlideIndex(newIndex);
-    }, 600);
-
-    resetAutoSlide();
-  };
-
-  const goToSlide = (index) => {
-    if (index === currentSlideIndex) return;
-
-    animateSlideOut();
-
-    setTimeout(() => {
-      setCurrentSlideIndex(index);
-    }, 600);
-
-    resetAutoSlide();
-  };
 
   const startAutoSlide = () => {
     autoSlideIntervalRef.current = setInterval(() => {
@@ -1242,6 +1101,25 @@ const CateringHero = () => {
       clearInterval(autoSlideIntervalRef.current);
     }
     startAutoSlide();
+  };
+
+  const changeSlide = (direction) => {
+    let newIndex = currentSlideIndex + direction;
+
+    if (newIndex >= slides.length) {
+      newIndex = 0;
+    } else if (newIndex < 0) {
+      newIndex = slides.length - 1;
+    }
+
+    setCurrentSlideIndex(newIndex);
+    resetAutoSlide();
+  };
+
+  const goToSlide = (index) => {
+    if (index === currentSlideIndex) return;
+    setCurrentSlideIndex(index);
+    resetAutoSlide();
   };
 
   const handleKeyDown = (e) => {
@@ -1291,7 +1169,6 @@ const CateringHero = () => {
   return (
     <div
       className="hero-container"
-      ref={heroContainerRef}
       onKeyDown={handleKeyDown}
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
@@ -1307,19 +1184,42 @@ const CateringHero = () => {
           }`}
           data-slide={index}
         >
+          <img
+            className="hero-bg-fallback"
+            src={slide.poster}
+            alt={slide.alt}
+          />
           <video
             className="hero-bg"
             autoPlay
             loop
+            muted
             playsinline
+            preload="auto"
             src={slide.video}
-            poster={slide.poster}
-            alt={slide.alt}
-            ref={(el) => (videoRefs.current[index] = el)}
             onError={() => handleVideoError(index)}
+            onCanPlay={() => {
+              const video = document.querySelector(
+                `.hero-slide[data-slide="${index}"] .hero-bg`
+              );
+              if (video && index === currentSlideIndex) {
+                video.play().catch((error) => {
+                  console.error(
+                    `Error playing video ${slides[index].video}:`,
+                    error
+                  );
+                });
+              }
+            }}
           />
           <div className="hero-content">
-            <h2 className="hero-title">{slide.title}</h2>
+            <h2
+              className={`hero-title ${
+                slide.title === "Magnoliya Grand Manor" ? "magnoliya-title" : ""
+              }`}
+            >
+              {slide.title}
+            </h2>
             <p className="hero-subtitle">{slide.subtitle}</p>
             <div className="hero-divider"></div>
             <div className="hero-description">{slide.description}</div>
@@ -1339,8 +1239,6 @@ const CateringHero = () => {
           />
         ))}
       </div>
-
-      <div className="floating-elements" ref={floatingElementsRef}></div>
     </div>
   );
 };
