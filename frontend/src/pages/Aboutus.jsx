@@ -13,9 +13,6 @@ const Aboutus = () => {
           <AboutUsHero />
           <AboutIntro />
           <OurStory />
-          {/* <OurClients /> */}
-          <OurTeam />
-          {/* <FooterHero /> */}
       <Footer />
     </>
   );

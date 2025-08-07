@@ -8,6 +8,7 @@ const corporateevents = () => {
       <CorporateHero />
       <MainCorporate />
       {/* <FooterHero /> */}
+      
       <Footer />
     </div>
   );

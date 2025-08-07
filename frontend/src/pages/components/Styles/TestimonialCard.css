@@ -1,147 +1,425 @@
-.hoteltestimonial-container {
-  height: 100vh;
-  background-attachment: fixed;
+/* TestimonialSection.css */
+.testimonial-section {
+  position: relative;
+  padding: 80px 0;
+  overflow: hidden;
+  background-color: #1a1a1a;
+}
+
+.parallax-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("./aboutpage/DSC00119.jpg");
   background-size: cover;
   background-position: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  z-index: 0;
+  opacity: 0.7;
+  transform: translateZ(0);
+  will-change: transform;
 }
 
-.hoteltestimonial-card {
-  background-color: #ffffff;
-  padding: 3rem 2rem;
-  max-width: 589px;
-  width: 101%;
-  height: 110%;
+.testimonial-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+}
+
+.testimonial-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.testimonial-header {
   text-align: center;
-  position: relative;
-  right: 367px;
+  margin-bottom: 60px;
 }
 
-.hoteltestimonial-text {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #000;
-  margin-bottom: 1.5rem;
-  top: 164px;
-  position: relative;
+.testimonial-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 16px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-.hoteltestimonial-quote-icon {
-  font-size: 8rem;
-  color: #e5cfc8;
-  margin-bottom: 1rem;
-}
-
-.hoteltestimonial-quote {
+.testimonial-subtitle {
   font-size: 1.2rem;
-  color: #222;
-  margin-bottom: 2rem;
-  line-height: 1.6;
-  font-family: "Georgia", serif;
+  color: #e9c0a4;
+  margin-bottom: 0;
+  font-weight: 400;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
-.hoteltestimonial-divider {
+.testimonial-wrapper {
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.testimonial-track {
+  display: flex;
+  animation: scroll 30s linear infinite;
+  gap: 30px;
+  width: calc(300% + 60px);
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-100% / 3));
+  }
+}
+
+.testimonial-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  min-width: 350px;
+  max-width: 350px;
+  height: 320px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.testimonial-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #e9c0a4, #f5d7c3, #e9c0a4);
+}
+
+.testimonial-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+}
+
+.testimonial-header-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.client-info {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  margin-bottom: 2rem;
+  gap: 15px;
 }
 
-.hoteltestimonial-decor-line {
-  width: 50px;
-  height: 1px;
-  background-color: #e5e5e5;
-}
-
-.hoteltestimonial-decor-icon {
-  font-size: 1.2rem;
-  color: #ccc;
-}
-
-.hoteltestimonial-author-box {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  margin-bottom: 1rem;
-}
-
-.hoteltestimonial-author-box img {
+.client-image {
   width: 60px;
   height: 60px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid #ccc;
+  border: 3px solid #e9c0a4;
+  transition: all 0.3s ease;
 }
 
-.hoteltestimonial-nav-button {
-    background-color: #e5cfc8;
-
-  border: 1px solid #ccc;
-  font-size: 1.2rem;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  border-radius: 4px;
-  /* transition: background 0.3s; */
-  width: 10%;
+.testimonial-card:hover .client-image {
+  transform: scale(1.1);
+  border-color: #d4a574;
 }
 
-.hoteltestimonial-nav-button.hoteltestimonial-filled {
-  background-color: #e5cfc8;
-  border-color: transparent;
-  color: #000;
-  width: 10%;
-}
-
-.hoteltestimonial-name {
-  font-size: 1rem;
+.client-details h3 {
   margin: 0;
-  font-weight: 700;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+  line-height: 1.2;
 }
 
-.hoteltestimonial-role {
+.client-details p {
+  margin: 4px 0 0;
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.3;
+}
+
+.rating {
+  display: flex;
+  gap: 2px;
+}
+
+.star {
+  font-size: 18px;
+  color: #ddd;
+  transition: all 0.2s ease;
+}
+
+.star.filled {
+  color: #ffd700;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+.testimonial-content {
+  margin-bottom: 20px;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.testimonial-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555;
+  margin: 0;
+  font-style: italic;
+  position: relative;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+}
+
+.testimonial-text::before {
+  content: '"';
+  font-size: 3rem;
+  color: #e9c0a4;
+  position: absolute;
+  top: -10px;
+  left: -15px;
+  font-family: serif;
+  opacity: 0.3;
+}
+
+.google-badge {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 10px 15px;
+  background: linear-gradient(135deg, #4285f4, #34a853);
+  border-radius: 25px;
   font-size: 0.85rem;
-  color: #999;
+  color: #ffffff;
+  font-weight: 500;
+  width: 100%;
+  box-shadow: 0 4px 12px rgba(66, 133, 244, 0.3);
 }
 
-@media (max-width: 768px) {
-  .hoteltestimonial-container {
-    padding: 1rem;
-    height: auto;
+.google-icon {
+  width: 18px;
+  height: 18px;
+  filter: brightness(0) invert(1);
+}
+
+.google-stars {
+  display: flex;
+  gap: 2px;
+}
+
+.google-stars .star {
+  font-size: 14px;
+  color: #ffd700;
+  text-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
+}
+
+.testimonial-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(233, 192, 164, 0.3);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.indicator.active {
+  background: #e9c0a4;
+  transform: scale(1.2);
+}
+
+.indicator:hover {
+  background: rgba(233, 192, 164, 0.7);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1200px) {
+  .testimonial-container {
+    max-width: 1000px;
   }
 
-  .hoteltestimonial-card {
-    padding: 3rem 2rem;
-    max-width: 589px;
-    width: 101%;
-    height: 110%;
-    position: relative;
-    right: 0px;
+  .testimonial-card {
+    min-width: 320px;
+    max-width: 320px;
+    height: 320px;
+  }
+}
+
+@media screen and (max-width: 968px) {
+  .testimonial-section {
+    padding: 60px 0;
   }
 
-  .hoteltestimonial-text {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #000;
-    margin-bottom: 1.5rem;
-    top: 0px;
-    position: relative;
+  .testimonial-title {
+    font-size: 2.5rem;
   }
 
-  .hoteltestimonial-quote {
-    font-size: 1rem;
+  .testimonial-card {
+    min-width: 300px;
+    max-width: 300px;
+    height: 300px;
+    padding: 25px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .testimonial-container {
+    padding: 0 15px;
   }
 
-  .hoteltestimonial-nav-button {
-    padding: 0.4rem 0.8rem;
+  .testimonial-title {
+    font-size: 2rem;
   }
 
-  .hoteltestimonial-author-box img {
+  .testimonial-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .testimonial-card {
+    min-width: 280px;
+    max-width: 280px;
+    height: 280px;
+    padding: 20px;
+  }
+
+  .testimonial-header-card {
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+  }
+
+  .client-image {
     width: 50px;
     height: 50px;
   }
+
+  .client-details h3 {
+    font-size: 1rem;
+  }
+
+  .client-details p {
+    font-size: 0.85rem;
+  }
+
+  .testimonial-text {
+    -webkit-line-clamp: 3;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .testimonial-section {
+    padding: 40px 0;
+  }
+
+  .testimonial-container {
+    padding: 0 10px;
+  }
+
+  .testimonial-title {
+    font-size: 1.8rem;
+  }
+
+  .testimonial-subtitle {
+    font-size: 1rem;
+  }
+
+  .testimonial-card {
+    min-width: 260px;
+    max-width: 260px;
+    height: 260px;
+    padding: 18px;
+  }
+
+  .testimonial-text {
+    font-size: 0.9rem;
+    -webkit-line-clamp: 3;
+  }
+
+  .star {
+    font-size: 16px;
+  }
+
+  .google-badge {
+    font-size: 0.8rem;
+    padding: 8px 12px;
+  }
+
+  .google-icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  .google-stars .star {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .testimonial-card {
+    min-width: 240px;
+    max-width: 240px;
+    height: 240px;
+    padding: 15px;
+  }
+
+  .testimonial-title {
+    font-size: 1.6rem;
+  }
+
+  .testimonial-text {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    -webkit-line-clamp: 2;
+  }
+}
+
+/* Pause animation on hover */
+.testimonial-wrapper:hover .testimonial-track {
+  animation-play-state: paused;
+}
+
+/* Smooth scroll for better performance */
+.testimonial-track {
+  will-change: transform;
+}
+
+/* Focus states for accessibility */
+.testimonial-card:focus {
+  outline: 2px solid #e9c0a4;
+  outline-offset: 4px;
+}
+
+.indicator:focus {
+  outline: 2px solid white;
+  outline-offset: 2px;
 }

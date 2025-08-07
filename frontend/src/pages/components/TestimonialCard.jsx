@@ -1,81 +1,147 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
-import bgImage from "../../../public/Image.png";
 import "./Styles/TestimonialCard.css";
-const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
-const Testimonial = () => {
-  const [testimonials, setTestimonials] = useState([]);
-  const [index, setIndex] = useState(0);
+const TestimonialCard = () => {
+  const testimonials = [
+    {
+      id: 1,
+      name: "Sarah Johnson",
+      role: "Marketing Director at TechCorp",
+      image:
+        "https://images.unsplash.com/photo-1494790108755-2616b612b586?w=150&h=150&fit=crop&crop=face",
+      review:
+        "Outstanding service! The team went above and beyond our expectations. Their attention to detail and commitment to excellence truly sets them apart from the competition.",
+      rating: 5,
+    },
+    {
+      id: 2,
+      name: "Michael Chen",
+      role: "CEO & Founder of InnovateLab",
+      image:
+        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
+      review:
+        "Working with this company has been a game-changer for our business. Their innovative solutions and professional approach helped us achieve results we never thought possible.",
+      rating: 5,
+    },
+    {
+      id: 3,
+      name: "Emily Rodriguez",
+      role: "Operations Manager at GrowthCo",
+      image:
+        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
+      review:
+        "Exceptional quality and customer service! From start to finish, the entire process was smooth and efficient. I highly recommend their services to anyone looking for excellence.",
+      rating: 5,
+    },
+    {
+      id: 4,
+      name: "David Thompson",
+      role: "Product Manager at NextGen Solutions",
+      image:
+        "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face",
+      review:
+        "The level of professionalism and expertise displayed by this team is remarkable. They delivered exactly what we needed, on time and within budget. Truly impressive!",
+      rating: 5,
+    },
+    {
+      id: 5,
+      name: "Lisa Wang",
+      role: "Creative Director at DesignStudio",
+      image:
+        "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&h=150&fit=crop&crop=face",
+      review:
+        "I'm blown away by the quality of work and attention to detail. The team understood our vision perfectly and brought it to life beyond our expectations. Simply amazing!",
+      rating: 5,
+    },
+    {
+      id: 6,
+      name: "Robert Anderson",
+      role: "Sales Director at MarketLeaders",
+      image:
+        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+      review:
+        "This company has transformed our approach to business. Their strategic insights and execution have helped us achieve unprecedented growth. Couldn't be happier!",
+      rating: 5,
+    },
+  ];
 
-  useEffect(() => {
-    axios
-      .get(`${backendUrl}/api/testimonials`)
-      .then((res) => setTestimonials(res.data))
-      .catch((err) => console.error("Failed to fetch testimonials", err));
-  }, []);
-
-  const handlePrev = () => {
-    setIndex(
-      (prevIndex) => (prevIndex - 1 + testimonials.length) % testimonials.length
-    );
+  const renderStars = (rating) => {
+    return Array.from({ length: 5 }, (_, index) => (
+      <span key={index} className={`star ${index < rating ? "filled" : ""}`}>
+        ★
+      </span>
+    ));
   };
 
-  const handleNext = () => {
-    setIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
-  };
-
-  useEffect(() => {
-    const autoScroll = setInterval(handleNext, 5000);
-    return () => clearInterval(autoScroll);
-  }, [testimonials]);
-
-  if (!testimonials.length)
-    return (
-      <div className="hoteltestimonial-loading">Loading Testimonials...</div>
-    );
-
-  const current = testimonials[index];
+  // Duplicate testimonials for infinite scroll
+  const duplicatedTestimonials = [
+    ...testimonials,
+    ...testimonials,
+    ...testimonials,
+  ];
 
   return (
-    <div
-      className="hoteltestimonial-container"
-      style={{ backgroundImage: `url(${bgImage})` }}
-    >
-      <div className="hoteltestimonial-card">
-        <div className="hoteltestimonial-text">
-          <div className="hoteltestimonial-quote-icon">&ldquo;</div>
-          <p className="hoteltestimonial-quote">{current.quote}</p>
+    <section className="testimonial-section">
+      <div className="parallax-background"></div>
+      <div className="testimonial-overlay"></div>
+      <div className="testimonial-container">
+        <div className="testimonial-header">
+          <h2 className="testimonial-title">What Our Clients Say</h2>
+          <p className="testimonial-subtitle">
+            Trusted by thousands of satisfied customers worldwide
+          </p>
+        </div>
 
-          <div className="hoteltestimonial-divider">
-            <span className="hoteltestimonial-decor-line" />
-            <span className="hoteltestimonial-decor-icon">&#10084;</span>
-            <span className="hoteltestimonial-decor-line" />
+        <div className="testimonial-wrapper">
+          <div className="testimonial-track">
+            {duplicatedTestimonials.map((testimonial, index) => (
+              <div
+                key={`${testimonial.id}-${index}`}
+                className="testimonial-card"
+              >
+                <div className="testimonial-header-card">
+                  <div className="client-info">
+                    <img
+                      src={testimonial.image}
+                      alt={testimonial.name}
+                      className="client-image"
+                    />
+                    <div className="client-details">
+                      <h3 className="client-name">{testimonial.name}</h3>
+                      <p className="client-role">{testimonial.role}</p>
+                    </div>
+                  </div>
+                  {/* <div className="rating">
+                    {renderStars(testimonial.rating)}
+                  </div> */}
+                </div>
+                <div className="testimonial-content">
+                  <p className="testimonial-text">{testimonial.review}</p>
+                </div>
+                {/* <div className="google-badge">
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png"
+                    alt="Google"
+                    className="google-icon"
+                  />
+                  <span>Google Reviews</span>
+                  <div className="google-stars">
+                    {renderStars(testimonial.rating)}
+                  </div>
+                </div> */}
+                <div className="rating">{renderStars(testimonial.rating)}</div>
+              </div>
+            ))}
           </div>
+        </div>
 
-          <div className="hoteltestimonial-author-box">
-            <button
-              onClick={handlePrev}
-              className="hoteltestimonial-nav-button"
-            >
-              &#8592;
-            </button>
-            <img src={`${backendUrl}${current.image}`} alt={current.name} />
-
-            <button
-              onClick={handleNext}
-              className="hoteltestimonial-nav-button hoteltestimonial-filled"
-            >
-              &#8594;
-            </button>
-          </div>
-
-          <h4 className="hoteltestimonial-name">{current.name}</h4>
-          <p className="hoteltestimonial-role">{current.role}</p>
+        <div className="testimonial-indicators">
+          <span className="indicator"></span>
+          <span className="indicator active"></span>
+          <span className="indicator"></span>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
-export default Testimonial;
+export default TestimonialCard;

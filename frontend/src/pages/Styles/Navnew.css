@@ -292,6 +292,7 @@ body {
 
 .newnav-nav-right .newnav-navigation {
   justify-content: flex-end;
+  margin-left: 191px;
 }
 
 .newnav-nav-item {

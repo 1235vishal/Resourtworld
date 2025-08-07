@@ -5,7 +5,7 @@ import EventVenueHero from "./Heropage/EventVenueHero";
 const events = () => {
   return (
       <div>
-        <EventVenueHero />
+        {/* <EventVenueHero /> */}
       <EventVenueMain />
       {/* <FooterHero /> */}
       <Footer />

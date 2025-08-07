@@ -172,7 +172,7 @@ const NewNav = () => {
                 Event Venues
               </Link>
               <Link to="/Wedding" className="newnav-nav-item">
-                Weddings & Social Events
+                Weddings
               </Link>
             </nav>
           </div>
@@ -186,11 +186,11 @@ const NewNav = () => {
           <div className="newnav-nav-right">
             <nav className="newnav-navigation">
               <Link to="/corporateevents" className="newnav-nav-item">
-                Corporate Events
+                Corporate & Social Events
               </Link>
-              <Link to="/EventServices" className="newnav-nav-item">
+              {/* <Link to="/EventServices" className="newnav-nav-item">
                 Event Services
-              </Link>
+              </Link> */}
               <Link to="/Gallerypage" className="newnav-nav-item">
                 Gallery
               </Link>
@@ -253,22 +253,22 @@ const NewNav = () => {
               className="newnav-sidebar-link"
               onClick={closeSidebar}
             >
-              Weddings & Social Events
+              Weddings
             </Link>
             <Link
               to="/corporateevents"
               className="newnav-sidebar-link"
               onClick={closeSidebar}
             >
-              Corporate Events
+              Corporate & Social Events
             </Link>
-            <Link
+            {/* <Link
               to="/EventServices"
               className="newnav-sidebar-link"
               onClick={closeSidebar}
             >
               Event Services
-            </Link>
+            </Link> */}
             <Link
               to="/Gallerypage"
               className="newnav-sidebar-link"

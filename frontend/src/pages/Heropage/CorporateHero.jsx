@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import corporateBackground from "../../assets/hero/banner-13.jpg"; // Adjust path if needed
+import corporateBackground from "../../assets/hero/banner-8.jpg"; // Adjust path if needed
 import { initAboutUsAnimation } from "./aboutUsAnimations";
 import "./CorporateHero.css";
 
@@ -17,7 +17,7 @@ const CorporateHero = () => {
         style={{ backgroundImage: `url(${corporateBackground})` }}
       ></div>
       <div className="corporate-content">
-        <h1>Corporate</h1>
+        <h1>Corporate & Social Events</h1>
       </div>
     </section>
   );
