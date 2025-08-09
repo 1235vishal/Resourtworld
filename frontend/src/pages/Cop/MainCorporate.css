@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;600&family=Spinnaker&family=Playfair+Display&family=Dancing+Script&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -11,7 +13,8 @@
   --text: #333;
   --text-light: #666;
   --white: #fff;
-  font-family: "Arial", sans-serif;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 300; /* Cormorant Garamond Light */
   line-height: 1.6;
   color: var(--text);
   background: linear-gradient(135deg, #f8f4f0 0%, var(--white) 100%);
@@ -21,106 +24,6 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
-}
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-.hotelcorporate-corporate-page {
-  --primary: #8b4513;
-  --accent: #d2691e;
-  --light-accent: #e9c0a4;
-  --text: #333;
-  --text-light: #666;
-  --white: #fff;
-  font-family: "Arial", sans-serif;
-  line-height: 1.6;
-  color: var(--text);
-  background: linear-gradient(135deg, #f8f4f0 0%, var(--white) 100%);
-}
-
-.hotelcorporate-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-/* Hero Section */
-.hotelcorporate-hero {
-  display: flex;
-  align-items: center;
-  background-color: #000;
-  position: relative;
-  overflow: hidden;
-}
-
-.hotelcorporate-hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: url("https://images.unsplash.com/photo-1516321497487-e288fb19713f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80")
-    center/cover no-repeat;
-  background-attachment: fixed;
-  opacity: 0.5; /* Reduced opacity for better text visibility */
-  z-index: 1;
-}
-
-.hotelcorporate-hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.2),
-    rgba(0, 0, 0, 0.5)
-  ); /* Lighter gradient for clarity */
-  z-index: 1;
-}
-
-.hotelcorporate-hero-content {
-  z-index: 2;
-  color: var(--white);
-  text-align: center;
-  padding: 20px;
-}
-
-.hotelcorporate-hero-title {
-  font-size: clamp(2.5rem, 8vw, 4rem);
-  font-weight: 700;
-  margin-bottom: 1rem;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8); /* Enhanced text shadow for readability */
-  opacity: 1; /* Start visible */
-}
-
-.hotelcorporate-hero-subtitle {
-  font-size: clamp(1rem, 3vw, 1.5rem);
-  margin-bottom: 2rem;
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8); /* Enhanced text shadow */
-  opacity: 1; /* Start visible */
-}
-
-.hotelcorporate-cta-button,
-.hotelcorporate-book-button {
-  display: inline-block;
-  padding: clamp(12px, 2vw, 15px) clamp(30px, 4vw, 40px);
-  background: linear-gradient(45deg, var(--primary), var(--accent));
-  color: var(--white);
-  text-decoration: none;
-  border-radius: 50px;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  opacity: 1; /* Start visible */
-  box-shadow: 0 10px 30px rgba(139, 69, 19, 0.3);
-  margin: 10px;
-  font-size: clamp(0.9rem, 2vw, 1rem);
-}
-
-.hotelcorporate-cta-button:hover,
-.hotelcorporate-book-button:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 40px rgba(139, 69, 19, 0.4);
 }
 
 /* Section Styling */
@@ -130,53 +33,56 @@
 
 .hotelcorporate-section-title {
   text-align: center;
+  font-family: "Playfair Display", serif;
   font-size: clamp(1.8rem, 5vw, 3rem);
   font-weight: 700;
   margin-bottom: 3rem;
   color: var(--primary);
-  opacity: 0;
-  transform: translateY(50px);
 }
 
 .hotelcorporate-section-subtitle {
   text-align: center;
+  font-family: "Spinnaker", sans-serif;
   font-size: clamp(0.9rem, 2vw, 1.2rem);
   color: var(--text-light);
   margin-bottom: 4rem;
-  opacity: 0;
-  transform: translateY(30px);
 }
 
 /* Event Types */
-.hotelcorporate-event-types {
+.hotelcorporate-event-types,
+.hotelcorporate-social-events {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
   margin-top: 3rem;
 }
 
-.hotelcorporate-event-card {
+.hotelcorporate-event-card,
+.hotelcorporate-social-card {
   background: var(--white);
   border-radius: 20px;
   padding: 2rem;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
-  opacity: 0;
-  transform: translateY(50px);
 }
 
-.hotelcorporate-event-card:hover {
+.hotelcorporate-event-card:hover,
+.hotelcorporate-social-card:hover {
   transform: translateY(-10px);
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
 }
 
-.hotelcorporate-event-card h3 {
+.hotelcorporate-event-card h3,
+.hotelcorporate-social-card h3 {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 600; /* Cormorant Garamond Semi Bold */
   font-size: clamp(1.2rem, 2vw, 1.5rem);
-  margin-bottom: 1rem;
   color: var(--primary);
 }
 
-.hotelcorporate-event-card p {
+.hotelcorporate-event-card p,
+.hotelcorporate-social-card p {
+  font-family: "Adobe Caslon", serif;
   color: var(--text-light);
   margin-bottom: 1.5rem;
   font-size: clamp(0.85rem, 1.5vw, 0.95rem);
@@ -187,6 +93,7 @@
 }
 
 .hotelcorporate-event-features li {
+  font-family: "Spinnaker", sans-serif;
   padding: 0.5rem 0;
   color: var(--text-light);
   position: relative;
@@ -202,263 +109,19 @@
   font-weight: bold;
 }
 
-/* Amenities Section */
-.hotelcorporate-amenities-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  margin-top: 3rem;
-}
-
-.hotelcorporate-amenity-item {
-  background: var(--white);
-  padding: 2rem;
-  border-radius: 15px;
-  text-align: center;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-  opacity: 0;
-  transform: translateY(50px);
-}
-
-.hotelcorporate-amenity-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-}
-
-.hotelcorporate-amenity-icon {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  color: var(--light-accent);
-}
-
-.hotelcorporate-amenity-item h3 {
-  font-size: clamp(1.1rem, 1.8vw, 1.3rem);
-}
-
-.hotelcorporate-amenity-item p {
-  font-size: clamp(0.85rem, 1.5vw, 0.95rem);
-}
-
-/* Tech Overview */
-.hotelcorporate-tech-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  margin-top: 3rem;
-}
-
-.hotelcorporate-tech-category {
-  background: var(--white);
-  padding: 2rem;
-  border-radius: 15px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-  opacity: 0;
-  transform: translateY(50px);
-}
-
-.hotelcorporate-tech-category h3 {
-  color: var(--primary);
-  margin-bottom: 1rem;
-  font-size: clamp(1.1rem, 1.8vw, 1.3rem);
-}
-
-/* Catering Options */
-.hotelcorporate-catering-options {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  margin-top: 3rem;
-}
-
-.hotelcorporate-catering-card {
-  background: var(--white);
-  padding: 2rem;
-  border-radius: 15px;
-  text-align: center;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-  opacity: 0;
-  transform: translateY(50px);
-}
-
-.hotelcorporate-catering-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-}
-
-.hotelcorporate-price-tag {
-  background: var(--light-accent);
-  color: var(--white);
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-  font-weight: bold;
-  margin: 1rem 0;
-  display: inline-block;
-  font-size: clamp(0.85rem, 1.5vw, 0.95rem);
-}
-
-.hotelcorporate-catering-card h3 {
-  font-size: clamp(1.1rem, 1.8vw, 1.3rem);
-}
-
-/* Responsive Design */
-@media (max-width: 992px) {
-  .hotelcorporate-hero-title {
-    font-size: clamp(1.8rem, 6vw, 3rem);
-  }
-
-  .hotelcorporate-hero-subtitle {
-    font-size: clamp(0.9rem, 2.5vw, 1.2rem);
-  }
-}
-
-@media (max-width: 768px) {
-  .hotelcorporate-hero {
-    min-height: 80vh;
-    background-attachment: scroll;
-  }
-
-  .hotelcorporate-hero-title {
-    font-size: clamp(1.6rem, 5vw, 2.5rem);
-  }
-
-  .hotelcorporate-hero-subtitle {
-    font-size: clamp(0.85rem, 2vw, 1rem);
-  }
-
-  .hotelcorporate-hero-content {
-    padding: 15px;
-  }
-
-  .hotelcorporate-section {
-    padding: clamp(40px, 8vw, 60px) 0;
-  }
-
-  .hotelcorporate-section-title {
-    font-size: clamp(1.6rem, 4vw, 2rem);
-  }
-
-  .hotelcorporate-section-subtitle {
-    font-size: clamp(0.85rem, 1.5vw, 0.95rem);
-  }
-
-  .hotelcorporate-event-types,
-  .hotelcorporate-amenities-grid,
-  .hotelcorporate-tech-grid,
-  .hotelcorporate-catering-options {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 576px) {
-  .hotelcorporate-hero {
-    min-height: 70vh;
-  }
-
-  .hotelcorporate-hero-title {
-    font-size: clamp(1.4rem, 4vw, 2rem);
-  }
-
-  .hotelcorporate-hero-subtitle {
-    font-size: clamp(0.8rem, 1.8vw, 0.9rem);
-  }
-
-  .hotelcorporate-cta-button,
-  .hotelcorporate-book-button {
-    padding: clamp(10px, 2vw, 12px) clamp(20px, 3vw, 25px);
-    font-size: clamp(0.8rem, 1.5vw, 0.9rem);
-  }
-}
-
-@media (max-width: 400px) {
-  .hotelcorporate-hero {
-    min-height: 60vh;
-  }
-
-  .hotelcorporate-container {
-    padding: 0 10px;
-  }
-
-  .hotelcorporate-event-card,
-  .hotelcorporate-amenity-item,
-  .hotelcorporate-catering-card,
-  .hotelcorporate-tech-category {
-    padding: 1.5rem;
-  }
-}
-
-/* Floating Animation */
-.hotelcorporate-floating {
-  animation: floating 3s ease-in-out infinite;
-}
-
-@keyframes floating {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-/* Hero Section */
-.hotelcorporate-hero {
-  min-height: 80vh;
+.hotelcorporate-social-header {
   display: flex;
   align-items: center;
-  background-color: #000;
-  position: relative;
-  overflow: hidden;
-}
-
-.hotelcorporate-hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: url("https://images.unsplash.com/photo-1516321497487-e288fb19713f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80")
-    center/cover no-repeat;
-  background-attachment: fixed;
-  opacity: 0.5; /* Reduced opacity for better text visibility */
-  z-index: 1;
-}
-
-.hotelcorporate-hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.2),
-    rgba(0, 0, 0, 0.5)
-  ); /* Lighter gradient for clarity */
-  z-index: 1;
-}
-
-.hotelcorporate-hero-content {
-  z-index: 2;
-  color: var(--white);
-  text-align: center;
-  padding: 20px;
-}
-
-.hotelcorporate-hero-title {
-  font-size: clamp(2.5rem, 8vw, 4rem);
-  font-weight: 700;
   margin-bottom: 1rem;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8); /* Enhanced text shadow for readability */
-  opacity: 1; /* Start visible */
 }
 
-.hotelcorporate-hero-subtitle {
-  font-size: clamp(1rem, 3vw, 1.5rem);
-  margin-bottom: 2rem;
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8); /* Enhanced text shadow */
-  opacity: 1; /* Start visible */
+.hotelcorporate-social-icon {
+  font-size: 2rem;
+  color: var(--light-accent);
+  margin-right: 1rem;
 }
 
-.hotelcorporate-cta-button,
+/* Booking Section */
 .hotelcorporate-book-button {
   display: inline-block;
   padding: clamp(12px, 2vw, 15px) clamp(30px, 4vw, 40px);
@@ -466,232 +129,20 @@
   color: var(--white);
   text-decoration: none;
   border-radius: 50px;
+  font-family: "Spinnaker", sans-serif;
   font-weight: 600;
   transition: all 0.3s ease;
-  opacity: 1; /* Start visible */
   box-shadow: 0 10px 30px rgba(139, 69, 19, 0.3);
-  margin: 10px;
   font-size: clamp(0.9rem, 2vw, 1rem);
 }
 
-.hotelcorporate-cta-button:hover,
 .hotelcorporate-book-button:hover {
   transform: translateY(-5px);
   box-shadow: 0 15px 40px rgba(139, 69, 19, 0.4);
 }
 
-/* Section Styling */
-.hotelcorporate-section {
-  padding: clamp(60px, 10vw, 100px) 0;
-}
-
-.hotelcorporate-section-title {
-  text-align: center;
-  font-size: clamp(1.8rem, 5vw, 3rem);
-  font-weight: 700;
-  margin-bottom: 3rem;
-  color: var(--primary);
-  opacity: 0;
-  transform: translateY(50px);
-}
-
-.hotelcorporate-section-subtitle {
-  text-align: center;
-  font-size: clamp(0.9rem, 2vw, 1.2rem);
-  color: var(--text-light);
-  margin-bottom: 4rem;
-  opacity: 0;
-  transform: translateY(30px);
-}
-
-/* Event Types */
-.hotelcorporate-event-types {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  margin-top: 3rem;
-}
-
-.hotelcorporate-event-card {
-  background: var(--white);
-  border-radius: 20px;
-  padding: 2rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-  opacity: 0;
-  transform: translateY(50px);
-}
-
-.hotelcorporate-event-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
-}
-
-.hotelcorporate-event-card h3 {
-  font-size: clamp(1.2rem, 2vw, 1.5rem);
-  margin-bottom: 1rem;
-  color: var(--primary);
-}
-
-.hotelcorporate-event-card p {
-  color: var(--text-light);
-  margin-bottom: 1.5rem;
-  font-size: clamp(0.85rem, 1.5vw, 0.95rem);
-}
-
-.hotelcorporate-event-features {
-  list-style: none;
-}
-
-.hotelcorporate-event-features li {
-  padding: 0.5rem 0;
-  color: var(--text-light);
-  position: relative;
-  padding-left: 1.5rem;
-  font-size: clamp(0.85rem, 1.5vw, 0.95rem);
-}
-
-.hotelcorporate-event-features li::before {
-  content: "✓";
-  position: absolute;
-  left: 0;
-  color: var(--light-accent);
-  font-weight: bold;
-}
-
-/* Amenities Section */
-.hotelcorporate-amenities-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  margin-top: 3rem;
-}
-
-.hotelcorporate-amenity-item {
-  background: var(--white);
-  padding: 2rem;
-  border-radius: 15px;
-  text-align: center;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-  opacity: 0;
-  transform: translateY(50px);
-}
-
-.hotelcorporate-amenity-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-}
-
-.hotelcorporate-amenity-icon {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  color: var(--light-accent);
-}
-
-.hotelcorporate-amenity-item h3 {
-  font-size: clamp(1.1rem, 1.8vw, 1.3rem);
-}
-
-.hotelcorporate-amenity-item p {
-  font-size: clamp(0.85rem, 1.5vw, 0.95rem);
-}
-
-/* Tech Overview */
-.hotelcorporate-tech-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  margin-top: 3rem;
-}
-
-.hotelcorporate-tech-category {
-  background: var(--white);
-  padding: 2rem;
-  border-radius: 15px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-  opacity: 0;
-  transform: translateY(50px);
-}
-
-.hotelcorporate-tech-category h3 {
-  color: var(--primary);
-  margin-bottom: 1rem;
-  font-size: clamp(1.1rem, 1.8vw, 1.3rem);
-}
-
-/* Catering Options */
-.hotelcorporate-catering-options {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  margin-top: 3rem;
-}
-
-.hotelcorporate-catering-card {
-  background: var(--white);
-  padding: 2rem;
-  border-radius: 15px;
-  text-align: center;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-  opacity: 0;
-  transform: translateY(50px);
-}
-
-.hotelcorporate-catering-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-}
-
-.hotelcorporate-price-tag {
-  background: var(--light-accent);
-  color: var(--white);
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-  font-weight: bold;
-  margin: 1rem 0;
-  display: inline-block;
-  font-size: clamp(0.85rem, 1.5vw, 0.95rem);
-}
-
-.hotelcorporate-catering-card h3 {
-  font-size: clamp(1.1rem, 1.8vw, 1.3rem);
-}
-
 /* Responsive Design */
 @media (max-width: 992px) {
-  .hotelcorporate-hero-title {
-    font-size: clamp(1.8rem, 6vw, 3rem);
-  }
-
-  .hotelcorporate-hero-subtitle {
-    font-size: clamp(0.9rem, 2.5vw, 1.2rem);
-  }
-}
-
-@media (max-width: 768px) {
-  .hotelcorporate-hero {
-    min-height: 80vh;
-    background-attachment: scroll;
-  }
-
-  .hotelcorporate-hero-title {
-    font-size: clamp(1.6rem, 5vw, 2.5rem);
-  }
-
-  .hotelcorporate-hero-subtitle {
-    font-size: clamp(0.85rem, 2vw, 1rem);
-  }
-
-  .hotelcorporate-hero-content {
-    padding: 15px;
-  }
-
-  .hotelcorporate-section {
-    padding: clamp(40px, 8vw, 60px) 0;
-  }
-
   .hotelcorporate-section-title {
     font-size: clamp(1.6rem, 4vw, 2rem);
   }
@@ -699,29 +150,28 @@
   .hotelcorporate-section-subtitle {
     font-size: clamp(0.85rem, 1.5vw, 0.95rem);
   }
+}
+
+@media (max-width: 768px) {
+  .hotelcorporate-section {
+    padding: clamp(40px, 8vw, 60px) 0;
+  }
 
   .hotelcorporate-event-types,
-  .hotelcorporate-amenities-grid,
-  .hotelcorporate-tech-grid,
-  .hotelcorporate-catering-options {
+  .hotelcorporate-social-events {
     grid-template-columns: 1fr;
   }
 }
 
 @media (max-width: 576px) {
-  .hotelcorporate-hero {
-    min-height: 70vh;
-  }
-
-  .hotelcorporate-hero-title {
+  .hotelcorporate-section-title {
     font-size: clamp(1.4rem, 4vw, 2rem);
   }
 
-  .hotelcorporate-hero-subtitle {
+  .hotelcorporate-section-subtitle {
     font-size: clamp(0.8rem, 1.8vw, 0.9rem);
   }
 
-  .hotelcorporate-cta-button,
   .hotelcorporate-book-button {
     padding: clamp(10px, 2vw, 12px) clamp(20px, 3vw, 25px);
     font-size: clamp(0.8rem, 1.5vw, 0.9rem);
@@ -729,33 +179,17 @@
 }
 
 @media (max-width: 400px) {
-  .hotelcorporate-hero {
-    min-height: 60vh;
-  }
-
   .hotelcorporate-container {
     padding: 0 10px;
   }
 
   .hotelcorporate-event-card,
-  .hotelcorporate-amenity-item,
-  .hotelcorporate-catering-card,
-  .hotelcorporate-tech-category {
+  .hotelcorporate-social-card {
     padding: 1.5rem;
   }
-}
 
-/* Floating Animation */
-.hotelcorporate-floating {
-  animation: floating 3s ease-in-out infinite;
-}
-
-@keyframes floating {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
+  .hotelcorporate-social-icon {
+    font-size: 1.5rem;
+    margin-right: 0.75rem;
   }
 }

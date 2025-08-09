@@ -98,13 +98,13 @@ const HotelDining = () => {
               </div>
             ))}
           </div>
-          <div className="DiningGallery-iframe">
+          {/* <div className="DiningGallery-iframe">
             <iframe
               src="https://pronine.pixieset.com/magnoliya360/fotos/"
               title="Magnoliya Dining Gallery"
               allowFullScreen
             ></iframe>
-          </div>
+          </div> */}
         </div>
       </section>
     </div>

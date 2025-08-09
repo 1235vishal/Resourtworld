@@ -17,7 +17,7 @@ const ContactUsHero = () => {
         style={{ backgroundImage: `url(${aboutBackground})` }}
       ></div>
       <div className="contacthero-content">
-        <h1>Contact Us</h1>
+        {/* <h1>Contact Us</h1> */}
       </div>
     </section>
   );
