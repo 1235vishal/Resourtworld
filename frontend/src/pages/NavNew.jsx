@@ -188,9 +188,9 @@ const NewNav = () => {
               <Link to="/corporateevents" className="newnav-nav-item">
                 Corporate & Social Events
               </Link>
-              {/* <Link to="/EventServices" className="newnav-nav-item">
+              <Link to="/EventServices" className="newnav-nav-item">
                 Event Services
-              </Link> */}
+              </Link>
               <Link to="/Gallerypage" className="newnav-nav-item">
                 Gallery
               </Link>
@@ -262,13 +262,13 @@ const NewNav = () => {
             >
               Corporate & Social Events
             </Link>
-            {/* <Link
+            <Link
               to="/EventServices"
               className="newnav-sidebar-link"
               onClick={closeSidebar}
             >
               Event Services
-            </Link> */}
+            </Link>
             <Link
               to="/Gallerypage"
               className="newnav-sidebar-link"

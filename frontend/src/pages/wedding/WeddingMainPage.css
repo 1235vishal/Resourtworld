@@ -342,39 +342,91 @@ section {
   background-color: var(--light-bg);
 }
 
-.hotelweddingworld-gallery-container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 15px;
+.hotelweddingworld-masonry-gallery {
+  columns: 3;
+  column-gap: 15px;
+  margin: 40px auto;
 }
 
-.hotelweddingworld-gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 10px;
-  margin: 40px 0;
-}
-
-.hotelweddingworld-gallery-item {
+.Masonry-item {
+  break-inside: avoid;
+  margin-bottom: 15px;
   position: relative;
+  border-radius: 8px;
   overflow: hidden;
-  border-radius: 15px;
-  background: #fff;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.Masonry-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.Masonry-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
   transition: transform 0.3s ease;
 }
 
-.hotelweddingworld-gallery-item:hover {
-  transform: translateY(-5px);
+.Masonry-item:hover img {
+  transform: scale(1.03);
 }
 
-.hotelweddingworld-gallery-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+/* Testimonials Section */
+.hotelweddingworld-testimonials-section {
+  padding: clamp(60px, 10vw, 80px) 0;
+  background: var(--white);
+}
+
+.hotelweddingworld-testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.hotelweddingworld-testimonial-card {
+  background: var(--white);
   border-radius: 15px;
+  padding: 30px 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.hotelweddingworld-testimonial-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.hotelweddingworld-testimonial-stars {
+  color: var(--primary);
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  margin-bottom: 15px;
+}
+
+.hotelweddingworld-testimonial-card p {
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(0.9rem, 1.5vw, 1rem);
+  color: var(--text-light);
+  line-height: 1.6;
+  margin-bottom: 15px;
+  font-style: italic;
+}
+
+.hotelweddingworld-testimonial-author {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1rem, 1.8vw, 1.1rem);
+  color: var(--text);
+  font-weight: 600;
+}
+
+.hotelweddingworld-testimonials-cta {
+  text-align: center;
+  margin-top: 40px;
 }
 
 /* CTA Section */
@@ -409,6 +461,7 @@ section {
 }
 
 .hotelweddingworld-cta-section h2 {
+  flex-direction: column;
   font-size: clamp(1.8rem, 5vw, 2.5rem);
   margin-bottom: 15px;
 }
@@ -440,9 +493,12 @@ section {
     font-size: clamp(0.9rem, 2.5vw, 1.2rem);
   }
 
-  .hotelweddingworld-gallery-grid {
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    gap: 8px;
+  .hotelweddingworld-masonry-gallery {
+    columns: 2;
+  }
+
+  .hotelweddingworld-testimonials-grid {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -488,9 +544,16 @@ section {
     align-items: center;
   }
 
-  .hotelweddingworld-gallery-grid {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 6px;
+  .hotelweddingworld-masonry-gallery {
+    columns: 1;
+  }
+
+  .hotelweddingworld-testimonial-card {
+    padding: 20px 15px;
+  }
+
+  .hotelweddingworld-testimonial-card p {
+    font-size: clamp(0.85rem, 1.4vw, 0.95rem);
   }
 }
 
@@ -520,9 +583,8 @@ section {
     font-size: clamp(0.8rem, 1.5vw, 0.9rem);
   }
 
-  .hotelweddingworld-gallery-grid {
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-    gap: 5px;
+  .hotelweddingworld-testimonial-card p {
+    font-size: clamp(0.8rem, 1.3vw, 0.9rem);
   }
 }
 
@@ -543,9 +605,8 @@ section {
     padding: 20px 15px;
   }
 
-  .hotelweddingworld-gallery-grid {
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-    gap: 4px;
+  .hotelweddingworld-testimonial-card {
+    padding: 15px 10px;
   }
 }
 
@@ -563,59 +624,3 @@ section {
     transform: translateY(-10px);
   }
 }
-/* Add these new styles to your existing CSS file */
-
-/* Masonry Gallery Styles */
-.hotelweddingworld-masonry-gallery {
-  columns: 3;
-  column-gap: 15px;
-  margin: 40px auto;
-}
-
-.hotelweddingworld-masonry-item {
-  break-inside: avoid;
-  margin-bottom: 15px;
-  position: relative;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.hotelweddingworld-masonry-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-}
-
-.hotelweddingworld-masonry-item img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 8px;
-  transition: transform 0.3s ease;
-}
-
-.hotelweddingworld-masonry-item:hover img {
-  transform: scale(1.03);
-}
-
-/* Responsive Masonry Gallery */
-@media (max-width: 992px) {
-  .hotelweddingworld-masonry-gallery {
-    columns: 2;
-  }
-}
-
-@media (max-width: 576px) {
-  .hotelweddingworld-masonry-gallery {
-    columns: 1;
-  }
-}
-
-/* Remove the old gallery styles */
-.hotelweddingworld-gallery-iframe-wrapper,
-.hotelweddingworld-gallery-iframe {
-  display: none;
-}
-
-

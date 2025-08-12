@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import eventServicesBackground from "../../assets/hero/banner-8.jpg"; // Adjust path if needed
+import eventServicesBackground from "../../assets/hero/B6.jpg"; // Adjust path if needed
 import "./EventServicesHero.css";
 import { initAboutUsAnimation } from "./aboutUsAnimations";
 

@@ -1,437 +1,186 @@
+/* Font Imports */
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Spinnaker&family=Dancing+Script&display=swap");
+
+/* Base Styles */
 .eventservice-container {
-  font-family: "Arial", sans-serif;
+  font-family: "Cormorant Garamond", serif;
   line-height: 1.6;
-  color: #333;
-  background-color: white;
+  color: #2c2c2c;
+  background-color: #fff;
 }
 
 .eventservice-container-inner {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 0 20px;
 }
 
-/* Hero Section */
-.eventservices-section {
-  position: relative;
-  height: 50vh;
-  width: 100%;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+/* Highlights Strip */
+.eventservice-highlights {
+  padding: 80px 0;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
 }
 
-.eventservices-parallax-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 120%;
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: center;
-  z-index: -1;
-}
-
-.eventservices-parallax-bg::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(
-    0,
-    0,
-    0,
-    0.3
-  ); /* Dark overlay for better text visibility */
-}
-
-.eventservices-content {
-  color: white;
-  font-family: "Playfair Display", serif;
-  z-index: 1;
-  padding: 0 20px;
-}
-
-.eventservices-content h1 {
-  font-size: 4rem;
-  font-weight: 600;
-  margin: 0;
-}
-
-/* Services Section */
-.eventservice-services {
-  padding: 100px 0;
-  background-color: white;
-}
-
-.eventservice-section-title {
-  text-align: center;
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 3rem;
-  color: #333;
-  position: relative;
-}
-
-.eventservice-section-title::after {
-  content: "";
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80px;
-  height: 4px;
-  background-color: #e9c0a4;
-  border-radius: 2px;
-}
-
-.eventservice-services-grid {
+.eventservice-highlights-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  margin-top: 4rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
 }
 
-.eventservice-service-card {
-  background: white;
+.eventservice-highlight-card {
+  background: #ffffff;
   padding: 2rem;
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease;
+  text-align: center;
+  border: 1px solid #f0f0f0;
   position: relative;
   overflow: hidden;
-  border: 1px solid #f0f0f0;
 }
 
-.eventservice-service-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background-color: #e9c0a4;
+.eventservice-highlight-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
 }
 
-.eventservice-service-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-}
-
-.eventservice-service-icon {
-  width: 100%;
-  height: 200px;
+.eventservice-highlight-icon {
+  width: 60px;
+  height: 60px;
   margin: 0 auto 1.5rem;
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.eventservice-service-icon img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.eventservice-service-card h3 {
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-  color: #333;
-  text-align: center;
-}
-
-.eventservice-service-card p {
-  color: #666;
-  line-height: 1.6;
-  text-align: center;
-}
-
-/* Lighting & AV Section */
-.eventservice-lighting-av {
-  padding: 100px 0;
-  background-color: #e9c0a4;
-  color: white;
-}
-
-.eventservice-tech-features {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  margin-top: 3rem;
-}
-
-.eventservice-tech-card {
-  background: rgba(255, 255, 255, 0.15);
-  padding: 2rem;
-  border-radius: 15px;
-  backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  transition: all 0.3s ease;
-  text-align: center;
-}
-
-.eventservice-tech-card:hover {
-  transform: translateY(-5px);
-  background: rgba(255, 255, 255, 0.25);
-}
-
-.eventservice-tech-icon {
-  width: 100%;
-  height: 200px;
-  margin: 0 auto 1rem;
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
-
-.eventservice-tech-icon img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.eventservice-tech-card h3 {
-  margin: 1rem 0;
-  color: white;
-}
-
-.eventservice-tech-card p {
-  opacity: 0.9;
-  color: white;
-}
-
-/* Testimonials Section */
-.eventservice-testimonials {
-  padding: 100px 0;
-  background-color: #f9f9f9;
-  color: #333;
-}
-
-.eventservice-testimonial-slider {
-  margin-top: 3rem;
-}
-
-.eventservice-testimonial-card {
-  background: white;
-  padding: 3rem;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-  text-align: center;
-  margin: 0 auto;
-  max-width: 800px;
-  border: 1px solid #f0f0f0;
-}
-
-.eventservice-testimonial-avatar {
-  width: 80px;
-  height: 80px;
   border-radius: 50%;
-  margin: 0 auto 1rem;
-  overflow: hidden;
-  border: 3px solid #e9c0a4;
-}
-
-.eventservice-testimonial-avatar img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.eventservice-testimonial-text {
-  font-size: 1.2rem;
-  font-style: italic;
-  margin-bottom: 2rem;
-  line-height: 1.8;
-  color: #555;
-}
-
-.eventservice-testimonial-author {
-  font-weight: 600;
-  font-size: 1.1rem;
-  color: #333;
-}
-
-.eventservice-testimonial-company {
-  opacity: 0.8;
-  margin-top: 0.5rem;
-  color: #666;
-}
-
-.eventservice-stars {
-  color: #e9c0a4;
-  margin-bottom: 1rem;
-  font-size: 1.2rem;
-}
-
-/* Success Stories */
-.eventservice-success-stories {
-  padding: 100px 0;
-  background-color: white;
-}
-
-.eventservice-story-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 2rem;
-  margin-top: 3rem;
-}
-
-.eventservice-story-card {
   background: #e9c0a4;
-  color: white;
-  padding: 2.5rem;
-  border-radius: 20px;
-  position: relative;
-  overflow: hidden;
-}
-
-.eventservice-story-card::before {
-  content: "";
-  position: absolute;
-  top: -50%;
-  right: -50%;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(
-    circle,
-    rgba(255, 255, 255, 0.1) 0%,
-    transparent 70%
-  );
-  animation: shimmer 3s ease-in-out infinite;
-}
-
-@keyframes shimmer {
-  0%,
-  100% {
-    transform: rotate(0deg);
-  }
-  50% {
-    transform: rotate(180deg);
-  }
-}
-
-.eventservice-story-number {
-  font-size: 3rem;
-  font-weight: 700;
-  opacity: 0.3;
-  margin-bottom: 1rem;
-}
-
-.eventservice-story-title {
-  font-size: 1.3rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-}
-
-.eventservice-story-description {
-  line-height: 1.6;
-  opacity: 0.9;
-}
-
-/* Contact Section */
-.eventservice-contact {
-  min-height: 50vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
-  position: relative;
-  background: url("https://images.unsplash.com/photo-1516321497487-e288fb19713f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80")
-    center/cover no-repeat;
+  transition: transform 0.3s ease;
 }
 
-.eventservice-contact-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.4);
+.eventservice-highlight-icon svg {
+  width: 32px;
+  height: 32px;
+  stroke: #ffffff;
 }
 
-.eventservice-contact-content {
-  position: relative;
-  z-index: 2;
-  color: white;
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 2rem;
+.eventservice-highlight-card:hover .eventservice-highlight-icon {
+  transform: scale(1.1);
 }
 
-.eventservice-contact h2 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
+.eventservice-highlight-card h3 {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 600; /* Semi Bold */
+  font-size: clamp(1.3rem, 2.5vw, 1.5rem);
+  color: #2c2c2c;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.4;
 }
 
-.eventservice-contact p {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
-  opacity: 0.9;
-}
-
-.eventservice-cta-button {
-  display: inline-block;
-  padding: 15px 40px;
-  background-color: #e9c0a4;
-  color: white;
-  text-decoration: none;
-  border-radius: 50px;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-}
-
-.eventservice-cta-button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
-  background-color: #d9b094;
+.eventservice-highlight-card p {
+  font-family: "Spinnaker", sans-serif;
+  font-size: clamp(0.9rem, 1.8vw, 1rem);
+  color: #666;
+  margin: 0;
+  line-height: 1.5;
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
-  .eventservices-content h1 {
-    font-size: 2.5rem;
+@media (max-width: 1200px) {
+  .eventservice-highlights {
+    padding: 60px 0;
   }
 
-  .eventservices-parallax-bg {
-    background-attachment: scroll; /* Disable fixed on mobile for performance */
+  .eventservice-highlights-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.2rem;
   }
 
-  .eventservice-section-title {
-    font-size: 2rem;
-  }
-
-  .eventservice-services-grid,
-  .eventservice-tech-features,
-  .eventservice-story-grid {
-    grid-template-columns: ma 1fr;
-  }
-
-  .eventservice-service-card,
-  .eventservice-tech-card,
-  .eventservice-testimonial-card,
-  .eventservice-story-card {
+  .eventservice-highlight-card {
     padding: 1.5rem;
+  }
+
+  .eventservice-highlight-card h3 {
+    font-size: clamp(1.2rem, 2.3vw, 1.4rem);
+  }
+
+  .eventservice-highlight-card p {
+    font-size: clamp(0.85rem, 1.7vw, 0.95rem);
   }
 }
 
-@media (max-width: 480px) {
-  .eventservices-content h1 {
-    font-size: 2rem;
-  }
-
+@media (max-width: 768px) {
   .eventservice-container-inner {
     padding: 0 15px;
   }
 
-  .eventservice-service-icon,
-  .eventservice-tech-icon {
-    height: 150px;
+  .eventservice-highlights {
+    padding: 40px 0;
+  }
+
+  .eventservice-highlights-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .eventservice-highlight-card {
+    padding: 1.2rem;
+  }
+
+  .eventservice-highlight-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .eventservice-highlight-icon svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .eventservice-highlight-card h3 {
+    font-size: clamp(1.1rem, 2.2vw, 1.3rem);
+  }
+
+  .eventservice-highlight-card p {
+    font-size: clamp(0.8rem, 1.6vw, 0.9rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .eventservice-highlights {
+    padding: 30px 0;
+  }
+
+  .eventservice-highlights-grid {
+    gap: 0.8rem;
+  }
+
+  .eventservice-highlight-card {
+    padding: 1rem;
+  }
+
+  .eventservice-highlight-icon {
+    width: 45px;
+    height: 45px;
+  }
+
+  .eventservice-highlight-icon svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .eventservice-highlight-card h3 {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+  }
+
+  .eventservice-highlight-card p {
+    font-size: clamp(0.75rem, 1.5vw, 0.85rem);
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .eventservice-highlight-card,
+  .eventservice-highlight-icon {
+    transition: none;
   }
 }

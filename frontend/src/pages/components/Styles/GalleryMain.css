@@ -1,48 +1,55 @@
-/* Pinterest Style Gallery */
-.pinterest-gallery-container {
-  padding: 2rem;
-  background-color: #f9f9f9;
+/* Pinterest Style Gallery CSS */
+.pinterest-gallery {
   width: 100%;
+  min-height: 100vh;
+  /* background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); */
+  padding: 20px 0;
+}
+
+.pinterest-container {
   max-width: 1400px;
   margin: 0 auto;
+  padding: 0 20px;
 }
 
 .pinterest-grid {
   display: grid;
-  grid-gap: 15px;
+  gap: 16px;
   width: 100%;
 }
 
 .pinterest-column {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 16px;
 }
 
 .pinterest-item {
   position: relative;
   overflow: hidden;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
   cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  width: 100%;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  background: white;
+  transform: translateZ(0);
 }
 
 .pinterest-item:hover {
-  transform: scale(1.02);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
 
 .pinterest-image {
   width: 100%;
   height: auto;
   display: block;
-  transition: transform 0.5s ease;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  object-fit: cover;
 }
 
 .pinterest-item:hover .pinterest-image {
-  transform: scale(1.05);
+  transform: scale(1.08);
 }
 
 .pinterest-overlay {
@@ -51,12 +58,13 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.4);
   display: flex;
   align-items: center;
   justify-content: center;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(2px);
 }
 
 .pinterest-item:hover .pinterest-overlay {
@@ -65,8 +73,8 @@
 
 .pinterest-zoom-icon {
   color: white;
-  opacity: 0.8;
-  transition: transform 0.3s ease;
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
 }
 
 .pinterest-item:hover .pinterest-zoom-icon {
@@ -80,47 +88,39 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.9);
+  background: rgba(0, 0, 0, 0.95);
   z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem;
+  padding: 40px;
+  backdrop-filter: blur(10px);
 }
 
 .pinterest-lightbox-content {
   position: relative;
-  max-width: 90%;
-  max-height: 90%;
+  max-width: 90vw;
+  max-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .pinterest-lightbox-image {
   max-width: 100%;
-  max-height: 80vh;
+  max-height: 90vh;
   object-fit: contain;
-  border-radius: 4px;
+  border-radius: 8px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
 }
 
-.pinterest-lightbox-close1 {
+.pinterest-close-btn {
   position: absolute;
-  top: -2px;
-   left: 400px;
-  background: transparent;
+  top: -50px;
+  right: -10px;
+  background: rgba(255, 255, 255, 0.9);
   border: none;
-  color: white;
-  font-size: 1.5rem;
-  cursor: pointer;
-  /* background-color: antiquewhite; */
-  width: 60px;
-}
-
-.pinterest-lightbox-nav {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0.2);
-  border: none;
-  color: white;
+  color: #333;
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -128,77 +128,139 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  z-index: 1001;
 }
 
-/* .pinterest-lightbox-nav:hover {
-  background: rgba(255, 255, 255, 0.4);
-} */
-
-.pinterest-lightbox-nav-prev {
-  left: -50px;
+.pinterest-close-btn:hover {
+  background: white;
+  transform: scale(1.1);
 }
 
-.pinterest-lightbox-nav-next {
-  right: -50px;
+.pinterest-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  color: #333;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  z-index: 1001;
 }
 
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-  .pinterest-gallery-container {
-    padding: 1rem;
+.pinterest-nav-btn:hover {
+  background: white;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.pinterest-nav-prev {
+  left: -70px;
+}
+
+.pinterest-nav-next {
+  right: -70px;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .pinterest-container {
+    padding: 0 15px;
   }
 
   .pinterest-grid {
-    grid-gap: 10px;
+    gap: 12px;
+  }
+
+  .pinterest-column {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .pinterest-gallery {
+    padding: 15px 0;
+  }
+
+  .pinterest-container {
+    padding: 0 10px;
+  }
+
+  .pinterest-grid {
+    gap: 10px;
   }
 
   .pinterest-column {
     gap: 10px;
   }
 
-  .pinterest-lightbox-nav {
-    width: 30px;
-    height: 30px;
+  .pinterest-lightbox {
+    padding: 20px;
   }
 
-  .pinterest-lightbox-nav-prev {
-    left: -40px;
+  .pinterest-nav-prev {
+    left: -45px;
   }
 
-  .pinterest-lightbox-nav-next {
-    right: -40px;
+  .pinterest-nav-next {
+    right: -45px;
+  }
+
+  .pinterest-nav-btn {
+    width: 40px;
+    height: 40px;
   }
 }
 
 @media (max-width: 480px) {
-  .pinterest-gallery-container {
-    padding: 0.5rem;
+  .pinterest-gallery {
+    padding: 10px 0;
+  }
+
+  .pinterest-container {
+    padding: 0 8px;
   }
 
   .pinterest-grid {
-    grid-gap: 8px;
+    gap: 8px;
   }
 
   .pinterest-column {
     gap: 8px;
   }
 
+  .pinterest-item {
+    border-radius: 8px;
+  }
+
   .pinterest-lightbox {
-    padding: 1rem;
+    padding: 15px;
   }
 
-  .pinterest-lightbox-nav {
-    width: 25px;
-    height: 25px;
-    font-size: 0.8rem;
+  .pinterest-nav-prev {
+    left: -35px;
   }
 
-  .pinterest-lightbox-nav-prev {
-    left: -30px;
+  .pinterest-nav-next {
+    right: -35px;
   }
 
-  .pinterest-lightbox-nav-next {
-    right: -30px;
+  .pinterest-nav-btn {
+    width: 35px;
+    height: 35px;
+  }
+
+  .pinterest-close-btn {
+    top: -45px;
+    width: 35px;
+    height: 35px;
   }
 }
