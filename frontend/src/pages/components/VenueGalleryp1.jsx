@@ -9,13 +9,13 @@ const VenueGalleryp1 = () => {
 
   // Sample hotel images (replace with your actual image URLs)
   const hotelImages = [
-    "./images/D1.jpg",
+    "./images/D8.jpg",
     "./images/D2.jpg",
-    "./images/D3.jpg",
-    "./images/D6.jpg",
+    "./images/D4.jpg",
+    "./images/D5.jpg",
     "./images/16.jpg",
     "./images/10.jpg",
-    "./images/15.jpg",
+    "./images/14.jpg",
     "./images/S5.jpg",
   ];
 
