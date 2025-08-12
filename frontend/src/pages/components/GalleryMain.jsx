@@ -7,157 +7,157 @@ import "./Styles/GalleryMain.css";
 const mediaItems = [
   {
     id: 1,
-    src: "./images/ballroom/B1.jpg",
+    src: "/images/ballroom/B1.jpg",
     category: "weddings",
   },
   {
     id: 2,
-    src: "./images/ballroom/B2.jpg",
+    src: "/images/ballroom/B2.jpg",
     category: "weddings",
   },
   {
     id: 3,
-    src: "./images/ballroom/B3.jpg",
+    src: "/images/ballroom/B3.jpg",
     category: "weddings",
   },
   {
     id: 4,
-    src: "./images/ballroom/B4.jpg",
+    src: "/images/ballroom/B4.jpg",
     category: "weddings",
   },
   {
     id: 5,
-    src: "./images/ballroom/B5.jpg",
+    src: "/images/ballroom/B5.jpg",
     category: "corporate",
   },
   {
     id: 6,
-    src: "./images/ballroom/B6.jpg",
+    src: "/images/ballroom/B6.jpg",
     category: "corporate",
   },
   {
     id: 7,
-    src: "./images/ballroom/B7.jpg",
+    src: "/images/ballroom/B7.jpg",
     category: "corporate",
   },
   {
     id: 8,
-    src: "./images/ballroom/B8.jpg",
+    src: "/images/ballroom/B8.jpg",
     category: "dining",
   },
   {
     id: 9,
-    src: "./images/ballroom/B9.jpg",
+    src: "/images/ballroom/B9.jpg",
     category: "dining",
   },
   {
     id: 10,
-    src: "./images/ballroom/B10.jpg",
+    src: "/images/ballroom/B10.jpg",
     category: "venues",
   },
   {
     id: 11,
-    src: "./images/ballroom/B11.jpg",
+    src: "/images/ballroom/B11.jpg",
     category: "venues",
   },
   {
     id: 12,
-    src: "./images/ballroom/B12.jpg",
+    src: "/images/ballroom/B12.jpg",
     category: "venues",
   },
   {
     id: 13,
-    src: "./images/ballroom/B13.jpg",
+    src: "/images/ballroom/B13.jpg",
     category: "weddings",
   },
   {
     id: 14,
-    src: "./images/Terrace/T1.jpg",
+    src: "/images/Terrace/T1.jpg",
     category: "weddings",
   },
   {
     id: 15,
-    src: "./images/Terrace/T2.jpg",
+    src: "/images/Terrace/T2.jpg",
     category: "weddings",
   },
   {
     id: 16,
-    src: "./images/Terrace/T3.jpg",
+    src: "/images/Terrace/T3.jpg",
     category: "corporate",
   },
   {
     id: 17,
-    src: "./images/Terrace/T4.jpg",
+    src: "/images/Terrace/T4.jpg",
     category: "corporate",
   },
   {
     id: 18,
-    src: "./images/Terrace/T5.jpg",
+    src: "/images/Terrace/T5.jpg",
     category: "dining",
   },
   {
     id: 19,
-    src: "./images/Terrace/T6.jpg",
+    src: "/images/Terrace/T6.jpg",
     category: "dining",
   },
   {
     id: 20,
-    src: "./images/Terrace/T7.jpg",
+    src: "/images/Terrace/T7.jpg",
     category: "venues",
   },
   {
     id: 21,
-    src: "./images/Terrace/T8.jpg",
+    src: "/images/Terrace/T8.jpg",
     category: "corporate",
   },
   {
     id: 22,
-    src: "./images/Terrace/T9.jpg",
+    src: "/images/Terrace/T9.jpg",
     category: "dining",
   },
   {
     id: 23,
-    src: "./images/Terrace/T10.jpg",
+    src: "/images/Terrace/T10.jpg",
     category: "dining",
   },
   {
     id: 24,
-    src: "./images/Terrace/T11.jpg",
+    src: "/images/Terrace/T11.jpg",
     category: "venues",
   },
   {
     id: 25,
-    src: "./images/outside/D1.jpg",
+    src: "/images/outside/D1.jpg",
     category: "dining",
   },
   {
     id: 26,
-    src: "./images/outside/D2.jpg",
+    src: "/images/outside/D2.jpg",
     category: "dining",
   },
   {
     id: 27,
-    src: "./images/outside/D3.jpg",
+    src: "/images/outside/D3.jpg",
     category: "venues",
   },
   {
     id: 28,
-    src: "./images/outside/D4.jpg",
+    src: "/images/outside/D4.jpg",
     category: "corporate",
   },
   {
     id: 29,
-    src: "./images/outside/D5.jpg",
+    src: "/images/outside/D5.jpg",
     category: "dining",
   },
   {
     id: 30,
-    src: "./images/outside/D6.jpg",
+    src: "/images/outside/D6.jpg",
     category: "dining",
   },
   {
     id: 31,
-    src: "./images/outside/D7.jpg",
+    src: "/images/outside/D7.jpg",
     category: "venues",
   },
 ];
@@ -207,7 +207,7 @@ const HotelGallery = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Distribute. images into columns for masonry
+  // Distribute images into columns for masonry
   useEffect(() => {
     const newColumnItems = Array.from({ length: columns }, () => []);
     mediaItems.forEach((item, index) => {
