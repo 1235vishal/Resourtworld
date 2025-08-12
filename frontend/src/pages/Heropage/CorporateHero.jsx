@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import corporateBackground from "../../assets/hero/banner-8.jpg"; // Adjust path if needed
+import corporateBackground from "/herobanner/banner-8.jpg"; // Adjust path if needed
 import { initAboutUsAnimation } from "./aboutUsAnimations";
 import "./CorporateHero.css";
 
